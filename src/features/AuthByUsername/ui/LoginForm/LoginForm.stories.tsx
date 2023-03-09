@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import  LoginForm  from './LoginForm';
-import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecarator/StoreDecarator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecarator/StoreDecarator';
+import LoginForm from './LoginForm';
 
 export default {
     title: 'features/LoginForm',
@@ -30,4 +30,4 @@ export const Loading = Template.bind({});
 Loading.args = {};
 Loading.decorators = [StoreDecorator({
     loginForm: { username: 'islam', password: 'dsdsd', isLoading: true },
-})]; 
+})];
