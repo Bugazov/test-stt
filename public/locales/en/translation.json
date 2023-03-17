@@ -17,6 +17,8 @@
   "decrement": "decrement",
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
-  "Форма авторизации":"Authorization form",
-  "Вы вели неверный логин пароль":"You have entered an incorrect login password"
+  "Форма авторизации": "Authorization form",
+  "Вы вели неверный логин пароль": "You have entered an incorrect login password",
+  "Профиль": "Profile",
+  "Редактировать": "Edit"
 }
