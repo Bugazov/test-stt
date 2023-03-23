@@ -25,14 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { 
-    "first":"islam",
-    "lastname":"bugazov",
-    "age":22,
-    "currency":"RUB",
-    "city":"Moscow",
-    "username":"admin",
-    "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fabrakadabra.fun%2F43829-ava-programmista.html&psig=AOvVaw19eZ1vhB3VduO0-CiXRAOi&ust=1678465095014000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLiWwO6fz_0CFQAAAAAdAAAAABAK"
-    
-   }
+  "profile": {
+    "first": "islam95",
+    "lastname": "bugazov",
+    "age": 22,
+    "currency": "RUB",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://www.shutterstock.com/image-vector/red-hacker-vector-logo-your-600w-1315619480.jpg",
+    "country": "Russia"
+  }
 }

@@ -17,8 +17,10 @@
   "decrement": "decrement",
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
-  "Форма авторизации": "Authorization form",
-  "Вы вели неверный логин пароль": "You have entered an incorrect login password",
-  "Профиль": "Profile",
-  "Редактировать": "Edit"
+  "Форма авторизации": "Auth form",
+  "Вы ввели неверный логин или пароль": "Uncorrect username or password",
+  "Выйти": "Logout",
+  "Укажите валюту": "Choose currency",
+  "Укажите страну": "Choose country",
+  "Профиль": "Profile"
 }
