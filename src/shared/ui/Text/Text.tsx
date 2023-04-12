@@ -7,6 +7,11 @@ export enum TextTheme {
   ERROR = 'error'
 }
 
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l'
+}
+
 export enum TextAlign{
     LEFT = 'left',
     RIGHT = 'right',
@@ -18,7 +23,8 @@ interface TextProps {
   title?: string;
   text?: string;
   theme?: TextTheme;
-  align?:TextAlign
+  align?:TextAlign;
+  size?:TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -28,11 +34,13 @@ export const Text = memo((props: TextProps) => {
         text,
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
+        size = TextSize.M,
     } = props;
 
     const mods = {
         [cls[theme]]: true,
         [cls[align]]: true,
+        [cls[size]]: true,
     };
 
     return (
