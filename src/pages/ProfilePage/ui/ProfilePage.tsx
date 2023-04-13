@@ -1,0 +1,118 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    fetchProfileData,
+    getProfileData,
+    getProfileError,
+    getProfileLoading, getProfileReadonly, getProfileValidateErrors, profileActions,
+    ProfileCard,
+    profileReducer, ValidateProfileError,
+} from 'entities/Profile';
+import { useCallback, useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDspatch';
+import { useSelector } from 'react-redux';
+import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
+import { TextTheme, Text } from 'shared/ui/Text/Text';
+
+import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
+
+const reducers:ReducersList = {
+    profile: profileReducer,
+
+};
+
+interface ProfilePageProps {
+  className?: string;
+}
+
+const ProfilePage = ({ className }: ProfilePageProps) => {
+    const { t } = useTranslation('profile');
+    const dispatch = useAppDispatch();
+    const dataForm = useSelector(getProfileForm);
+    const error = useSelector(getProfileError);
+    const readonly = useSelector(getProfileReadonly);
+    const isLoading = useSelector(getProfileLoading);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+
+    };
+
+    useEffect(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
+    }, [dispatch]);
+
+    const onChangeFirstname = useCallback((value:string) => {
+        dispatch(profileActions.updateProfile({ first: value || '' }));
+    }, [dispatch]);
+
+    const onChangeLastname = useCallback((value:string) => {
+        dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAge = useCallback((value:string) => {
+        dispatch(profileActions.updateProfile({ age: Number(value) || 0 }));
+    }, [dispatch]);
+
+    const onChangeCity = useCallback((value:string) => {
+        dispatch(profileActions.updateProfile({ city: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value:string) => {
+        dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    }, [dispatch]);
+
+    const onChangeUsername = useCallback((value:string) => {
+        dispatch(profileActions.updateProfile({ username: value || '' }));
+    }, [dispatch]);
+
+    const onChangeCurrency = useCallback((currency:Currency) => {
+        dispatch(profileActions.updateProfile({ currency }));
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((country:Country) => {
+        dispatch(profileActions.updateProfile({ country }));
+    }, [dispatch]);
+
+    return (
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <div className={classNames('', {}, [className])}>
+                <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslates[err]}
+                    />
+                ))}
+                <ProfileCard
+                    data={dataForm}
+                    error={error}
+                    isLoading={isLoading}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    readonly={readonly}
+                    onChangeCity={onChangeCity}
+                    onChangeAge={onChangeAge}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+
+                />
+            </div>
+        </DynamicModuleLoader>
+    );
+};
+
+export default ProfilePage;
