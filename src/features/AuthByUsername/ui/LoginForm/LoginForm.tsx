@@ -7,7 +7,7 @@ import { memo, useCallback, useEffect } from 'react';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { loginReducer } from 'features/AuthByUsername';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDspatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import cls from './LoginForm.module.scss';
 import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';

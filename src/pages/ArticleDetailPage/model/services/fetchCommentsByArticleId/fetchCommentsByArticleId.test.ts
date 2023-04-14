@@ -1,28 +1,35 @@
 import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { userActions } from 'entities/User';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { fetchProfileData } from './fetchProfileData';
+
+import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
 jest.mock('axios');
 
 const mockedAxios = jest.mocked(axios, true);
 
-const data = {
-    id: '1',
-    first: 'Islam',
-    lastname: 'Bugazov',
-    age: 19,
-    username: 'bugazowww',
-    city: 'Grozny',
-    country: Country.Russia,
-    currency: Currency.RUB,
-};
+const data = [
+    {
+        id: '1',
+        text: 'some comment',
+        articleId: '1',
+        userId: '1',
+    },
+    {
+        id: '2',
+        text: 'some comment 2',
+        articleId: '1',
+        userId: '1',
+    },
+];
 
-describe('fetchProfileData', () => {
+describe('fetchArticleById', () => {
     test('success', async () => {
-        const thunk = new TestAsyncThunk(fetchProfileData);
+        const thunk = new TestAsyncThunk(fetchCommentsByArticleId, {
+            articleDetailsComments: {
+                ids: [],
+                entities: {},
+            },
+        });
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         const result = await thunk.callThunk('1');
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -31,7 +38,7 @@ describe('fetchProfileData', () => {
         expect(result.payload).toEqual(data);
     });
     test('error ', async () => {
-        const thunk = new TestAsyncThunk(fetchProfileData);
+        const thunk = new TestAsyncThunk(fetchCommentsByArticleId);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('1');
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
