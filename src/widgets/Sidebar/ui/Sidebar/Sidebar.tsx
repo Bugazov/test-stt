@@ -8,8 +8,9 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
-import { SideBarItemsList } from '../../model/items';
 import SideBarItem from '../SideBarItem/SideBarItem';
 
 interface SidebarProps {
@@ -19,13 +20,14 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
+    const sidebarItemsList = useSelector(getSidebarItems);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
 
     const itemList = useMemo(
-        () => SideBarItemsList.map((item) => (
+        () => sidebarItemsList.map((item) => (
             <SideBarItem
                 collapsed={collapsed}
                 item={item}

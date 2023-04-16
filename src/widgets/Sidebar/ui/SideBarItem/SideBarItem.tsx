@@ -4,8 +4,8 @@ import ProfileIcon from 'shared/assets/icons/profile.svg';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { useTranslation } from 'react-i18next';
+import { SideBarItemType } from 'widgets/Sidebar/model/types/sidebar';
 import cls from './SideBarItem.module.scss';
-import { SideBarItemType } from '../../model/items';
 
 interface SideBarItemProps {
   item: SideBarItemType;
