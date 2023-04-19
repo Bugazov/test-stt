@@ -10,6 +10,7 @@ const data = {
     subtitle: 'Чемпион',
     img: 'DSDSDSDSD',
     views: 200,
+    user: { id: '1', username: 'ISLAM' },
     createdAt: 'DSDSDSDSD',
     type: [],
     blocks: [],

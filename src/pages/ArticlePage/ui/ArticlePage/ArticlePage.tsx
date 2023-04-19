@@ -1,6 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleView } from 'entities/Article/model/types/article';
 import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
@@ -12,7 +14,11 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
 
     return (
         <div className={classNames(cls.ArticlePage, {}, [className])}>
-            {t('ARTICLE PAGE')}
+            <ArticleList
+                isLoading
+                view={ArticleView.BIG}
+                articles={[]}
+            />
         </div>
     );
 };
