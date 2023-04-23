@@ -10,15 +10,18 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from 'pages/ArticlePage/model/types/articlesPageSchema';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+
     loginForm?: loginSchema,
     profile?:ProfileSchema,
     articleDetails?:ArticleDetailsSchema,
     articleDetailsComments?:ArticleDetailsCommentsSchema,
-    addCommentForm?:AddCommentFormSchema
+    addCommentForm?:AddCommentFormSchema,
+    articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
