@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 export default {
     title: 'shared/Text',
     component: Text,
@@ -55,4 +55,10 @@ Error.args = {
     title: 'Title',
     text: 'Text',
     theme: TextTheme.ERROR,
+};
+export var SizeL = Template.bind({});
+SizeL.args = {
+    title: 'title Lorem Ipsum',
+    text: 'Text',
+    size: TextSize.L,
 };

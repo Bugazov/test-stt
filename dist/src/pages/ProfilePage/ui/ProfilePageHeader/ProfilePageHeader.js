@@ -15,13 +15,17 @@ import Text from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDspatch';
+import { getProfileData, getProfileReadonly, profileActions, updateProfileData, } from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useCallback } from 'react';
+import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePageHeader.module.scss';
 export var ProfilePageHeader = function (_a) {
     var className = _a.className;
     var t = useTranslation('profile').t;
+    var authData = useSelector(getUserAuthData);
+    var profileData = useSelector(getProfileData);
+    var canEdit = (authData === null || authData === void 0 ? void 0 : authData.id) === (profileData === null || profileData === void 0 ? void 0 : profileData.id);
     var readonly = useSelector(getProfileReadonly);
     var dispatch = useAppDispatch();
     var onEdit = useCallback(function () {
@@ -33,6 +37,6 @@ export var ProfilePageHeader = function (_a) {
     var onSave = useCallback(function () {
         dispatch(updateProfileData());
     }, [dispatch]);
-    return (_jsxs("div", __assign({ className: classNames(cls.ProfilePageHeader, {}, [className]) }, { children: [_jsx(Text, { title: t('Профиль') }, void 0), readonly ? (_jsx(Button, __assign({ className: cls.editBtn, theme: ButtonTheme.OUTLINE, onClick: onEdit }, { children: t('Редактировать') }), void 0))
-                : (_jsxs(_Fragment, { children: [_jsx(Button, __assign({ className: cls.editBtn, theme: ButtonTheme.OUTLINE_RED, onClick: onCancelEdit }, { children: t('Отменить') }), void 0), _jsx(Button, __assign({ className: cls.saveBtn, theme: ButtonTheme.OUTLINE, onClick: onSave }, { children: t('Сохранить') }), void 0)] }, void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: classNames(cls.ProfilePageHeader, {}, [className]) }, { children: [_jsx(Text, { title: t('Профиль') }, void 0), canEdit && (_jsx("div", __assign({ className: cls.btnWrapper }, { children: readonly ? (_jsx(Button, __assign({ className: cls.editBtn, theme: ButtonTheme.OUTLINE, onClick: onEdit }, { children: t('Редактировать') }), void 0))
+                    : (_jsxs(_Fragment, { children: [_jsx(Button, __assign({ className: cls.editBtn, theme: ButtonTheme.OUTLINE_RED, onClick: onCancelEdit }, { children: t('Отменить') }), void 0), _jsx(Button, __assign({ className: cls.saveBtn, theme: ButtonTheme.OUTLINE, onClick: onSave }, { children: t('Сохранить') }), void 0)] }, void 0)) }), void 0))] }), void 0));
 };

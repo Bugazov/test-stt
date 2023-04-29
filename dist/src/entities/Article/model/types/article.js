@@ -10,3 +10,8 @@ export var ArticleType;
     ArticleType["SCIENCE"] = "SCIENCE";
     ArticleType["ECONOMICS"] = "ECONOMICS";
 })(ArticleType || (ArticleType = {}));
+export var ArticleView;
+(function (ArticleView) {
+    ArticleView["BIG"] = "BIG";
+    ArticleView["SMALL"] = "SMALL";
+})(ArticleView || (ArticleView = {}));

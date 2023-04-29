@@ -42,6 +42,7 @@ import { fetchProfileData } from './fetchProfileData';
 jest.mock('axios');
 var mockedAxios = jest.mocked(axios, true);
 var data = {
+    id: '1',
     first: 'Islam',
     lastname: 'Bugazov',
     age: 19,
@@ -58,7 +59,7 @@ describe('fetchProfileData', function () {
                 case 0:
                     thunk = new TestAsyncThunk(fetchProfileData);
                     thunk.api.get.mockReturnValue(Promise.resolve({ data: data }));
-                    return [4 /*yield*/, thunk.callThunk()];
+                    return [4 /*yield*/, thunk.callThunk('1')];
                 case 1:
                     result = _a.sent();
                     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -76,7 +77,7 @@ describe('fetchProfileData', function () {
                 case 0:
                     thunk = new TestAsyncThunk(fetchProfileData);
                     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-                    return [4 /*yield*/, thunk.callThunk()];
+                    return [4 /*yield*/, thunk.callThunk('1')];
                 case 1:
                     result = _a.sent();
                     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

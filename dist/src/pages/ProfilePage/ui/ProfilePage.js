@@ -14,11 +14,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { fetchProfileData, getProfileError, getProfileLoading, getProfileReadonly, getProfileValidateErrors, profileActions, ProfileCard, profileReducer, ValidateProfileError, } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDspatch';
+import { useCallback } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 import { TextTheme, Text } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 var reducers = {
     profile: profileReducer,
@@ -33,6 +35,7 @@ var ProfilePage = function (_a) {
     var readonly = useSelector(getProfileReadonly);
     var isLoading = useSelector(getProfileLoading);
     var validateErrors = useSelector(getProfileValidateErrors);
+    var id = useParams().id;
     var validateErrorsTranslates = (_b = {},
         _b[ValidateProfileError.SERVER_ERROR] = t('Серверная ошибка при сохранении'),
         _b[ValidateProfileError.INCORRECT_COUNTRY] = t('Некорректный регион'),
@@ -40,11 +43,11 @@ var ProfilePage = function (_a) {
         _b[ValidateProfileError.INCORRECT_AGE] = t('Некорректный возраст'),
         _b[ValidateProfileError.NO_DATA] = t('Данные не указаны'),
         _b);
-    useEffect(function () {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(function () {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
     var onChangeFirstname = useCallback(function (value) {
         dispatch(profileActions.updateProfile({ first: value || '' }));
     }, [dispatch]);

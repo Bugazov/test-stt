@@ -10,8 +10,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { ThemeDecorator } from '../49-50/production-project-200b42dfc5bb601c5ca8beb553e026c377fbb2fb/src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '../49-50/production-project-200b42dfc5bb601c5ca8beb553e026c377fbb2fb/src/app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { Skeleton } from './Skeleton';
 export default {
     title: 'shared/Skeleton',

@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { CountrySelect } from './CountrySelect';
 export default {
-    title: 'entinies/CountrySelect',
+    title: 'entities/CountrySelect',
     component: CountrySelect,
     argTypes: {
         backgroundColor: { control: 'color' },

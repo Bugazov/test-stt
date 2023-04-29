@@ -18,7 +18,7 @@ export var AppRoutes;
 export var RoutePath = (_a = {},
     _a[AppRoutes.MAIN] = '/',
     _a[AppRoutes.ABOUT] = '/about',
-    _a[AppRoutes.PROFILE] = '/profile',
+    _a[AppRoutes.PROFILE] = '/profile/',
     _a[AppRoutes.ARTICLES] = '/articles',
     _a[AppRoutes.ARTICLES_DETAILS] = '/articles/',
     // последний
@@ -38,7 +38,7 @@ export var routeConfig = (_b = {},
         element: _jsx(NotFoundPage, {}, void 0),
     },
     _b[AppRoutes.PROFILE] = {
-        path: RoutePath.profile,
+        path: "".concat(RoutePath.profile, ":id"),
         element: _jsx(ProfilePage, {}, void 0),
         authOnly: true,
     },
