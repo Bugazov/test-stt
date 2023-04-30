@@ -23,7 +23,7 @@ export const fetchArticlesList = createAsyncThunk<
                     params: {
                         _expand: 'user',
                         _limit: limit,
-                        page,
+                        _page: page,
                     },
                 });
 
