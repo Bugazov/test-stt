@@ -14,7 +14,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Text from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
@@ -25,9 +25,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from 'pages/ArticleDetailPage/model/services/addCommentForArticle/addCommentForArticle';
 import { AddCommentForm } from 'features/addCommentForm';
-import { Page } from 'shared/ui/Page/Page';
-import cls from './ArticleDetailsPage.module.scss';
+import { Page } from 'widgets/Page/Page';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import cls from './ArticleDetailsPage.module.scss';
 var reducers = {
     articleDetailsComments: articleDetailsCommentsReducer,
 };
@@ -38,15 +40,19 @@ var ArticleDetailPage = function (_a) {
     var comments = useSelector(getArticleComments.selectAll);
     var commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     var dispatch = useAppDispatch();
+    var navigate = useNavigate();
     var onSendComment = useCallback(function (text) {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
+    var onBackToList = useCallback(function () {
+        navigate(RoutePath.articles);
+    }, [navigate]);
     useInitialEffect(function () {
         dispatch(fetchCommentsByArticleId(id));
     });
     if (!id) {
         return (_jsx(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: t('Статья не найдена') }), void 0));
     }
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { id: id }, void 0), _jsx(Text, { className: cls.commentTitle, title: t('Комментарии') }, void 0), _jsx(AddCommentForm, { onSendComment: onSendComment }, void 0), _jsx(CommentList, { comments: comments, isLoading: commentsIsLoading }, void 0)] }), void 0) }), void 0));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onBackToList }, { children: t('Назад к списку') }), void 0), _jsx(ArticleDetails, { id: id }, void 0), _jsx(Text, { className: cls.commentTitle, title: t('Комментарии') }, void 0), _jsx(AddCommentForm, { onSendComment: onSendComment }, void 0), _jsx(CommentList, { comments: comments, isLoading: commentsIsLoading }, void 0)] }), void 0) }), void 0));
 };
 export default memo(ArticleDetailPage);

@@ -34,7 +34,7 @@ export var Navbar = memo(function (_a) {
         dispatch(userActions.logout());
     }, [dispatch]);
     if (authdata) {
-        return (_jsx("div", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: _jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onLogout }, { children: t('Выйти') }), void 0) }), void 0));
+        return (_jsx("header", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: _jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onLogout }, { children: t('Выйти') }), void 0) }), void 0));
     }
-    return (_jsxs("div", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onShowModal }, { children: t('Войти') }), void 0), isAuthModal && (_jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal }, void 0))] }), void 0));
+    return (_jsxs("header", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onShowModal }, { children: t('Войти') }), void 0), isAuthModal && (_jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal }, void 0))] }), void 0));
 });

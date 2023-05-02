@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
@@ -23,11 +23,8 @@ var getSkeletons = function (view) { return new Array(view === ArticleView.SMALL
 export var ArticleList = memo(function (props) {
     var className = props.className, articles = props.articles, _a = props.view, view = _a === void 0 ? ArticleView.SMALL : _a, isLoading = props.isLoading;
     var t = useTranslation().t;
-    if (isLoading) {
-        return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: getSkeletons(view) }), void 0));
-    }
     var renderArticle = function (article) { return (_jsx(ArticleListItem, { article: article, view: view, className: cls.card }, article.id)); };
-    return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: articles.length > 0
-            ? articles.map(renderArticle)
-            : null }), void 0));
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: [articles.length > 0
+                ? articles.map(renderArticle)
+                : null, isLoading && getSkeletons(view)] }), void 0));
 });

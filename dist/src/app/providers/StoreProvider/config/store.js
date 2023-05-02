@@ -13,13 +13,13 @@ import { configureStore, } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
+import { scrollSaveReducer } from 'features/ScrollSave';
 import { createReducerManager } from './reducerManager';
-export function createReduxStore(initialState, asyncReducers, navigate) {
-    var rootReducers = __assign(__assign({}, asyncReducers), { counter: counterReducer, user: userReducer });
+export function createReduxStore(initialState, asyncReducers) {
+    var rootReducers = __assign(__assign({}, asyncReducers), { counter: counterReducer, user: userReducer, scrollSave: scrollSaveReducer });
     var reducerManager = createReducerManager(rootReducers);
     var extraArgs = {
         api: $api,
-        navigate: navigate,
     };
     var store = configureStore({
         reducer: reducerManager.reduce,

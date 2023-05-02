@@ -35,6 +35,6 @@ export var ArticleViewSelector = memo(function (props) {
     }; };
     return (_jsx("div", __assign({ className: classNames(cls.ArticleViewSelector, {}, [className]) }, { children: viewTypes.map(function (viewType) {
             var _a;
-            return (_jsx(Button, __assign({ theme: ButtonTheme.CLEAR, onClick: onClick(viewType.view) }, { children: _jsx(Icon, { Svg: viewType.icon, className: classNames('', (_a = {}, _a[cls.notSelected] = viewType.view !== view, _a)) }, void 0) }), void 0));
+            return (_jsx(Button, __assign({ theme: ButtonTheme.CLEAR, onClick: onClick(viewType.view) }, { children: _jsx(Icon, { Svg: viewType.icon, className: classNames('', (_a = {}, _a[cls.notSelected] = viewType.view !== view, _a)) }, void 0) }), viewType.view));
         }) }), void 0));
 });

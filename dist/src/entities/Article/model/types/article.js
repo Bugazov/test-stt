@@ -4,6 +4,12 @@ export var ArticleBlockType;
     ArticleBlockType["IMAGE"] = "IMAGE";
     ArticleBlockType["TEXT"] = "TEXT";
 })(ArticleBlockType || (ArticleBlockType = {}));
+export var ArticleSortField;
+(function (ArticleSortField) {
+    ArticleSortField["VIEWS"] = "views";
+    ArticleSortField["TITLE"] = "title";
+    ArticleSortField["CREATE"] = "createdAt";
+})(ArticleSortField || (ArticleSortField = {}));
 export var ArticleType;
 (function (ArticleType) {
     ArticleType["IT"] = "IT";

@@ -14,8 +14,10 @@ export function createReducerManager(initialReducers) {
     var reducers = __assign({}, initialReducers);
     var combinedReducer = combineReducers(reducers);
     var keysToRemove = [];
+    var mountedReducers = {};
     return {
         getReducerMap: function () { return reducers; },
+        getMountedReducers: function () { return mountedReducers; },
         reduce: function (state, action) {
             if (keysToRemove.length > 0) {
                 state = __assign({}, state);
@@ -31,6 +33,7 @@ export function createReducerManager(initialReducers) {
                 return;
             }
             reducers[key] = reducer;
+            mountedReducers[key] = true;
             combinedReducer = combineReducers(reducers);
         },
         remove: function (key) {
@@ -40,6 +43,7 @@ export function createReducerManager(initialReducers) {
             delete reducers[key];
             keysToRemove.push(key);
             combinedReducer = combineReducers(reducers);
+            mountedReducers[key] = false;
         },
     };
 }

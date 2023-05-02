@@ -21,6 +21,7 @@ import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/
 import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'widgets/Page/Page';
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 var reducers = {
     profile: profileReducer,
@@ -72,6 +73,6 @@ var ProfilePage = function (_a) {
     var onChangeCountry = useCallback(function (country) {
         dispatch(profileActions.updateProfile({ country: country }));
     }, [dispatch]);
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs("div", __assign({ className: classNames('', {}, [className]) }, { children: [_jsx(ProfilePageHeader, {}, void 0), (validateErrors === null || validateErrors === void 0 ? void 0 : validateErrors.length) && validateErrors.map(function (err) { return (_jsx(Text, { theme: TextTheme.ERROR, text: validateErrorsTranslates[err] }, err)); }), _jsx(ProfileCard, { data: dataForm, error: error, isLoading: isLoading, onChangeFirstname: onChangeFirstname, onChangeLastname: onChangeLastname, readonly: readonly, onChangeCity: onChangeCity, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }, void 0)] }), void 0) }), void 0));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(Page, __assign({ className: classNames('', {}, [className]) }, { children: [_jsx(ProfilePageHeader, {}, void 0), (validateErrors === null || validateErrors === void 0 ? void 0 : validateErrors.length) && validateErrors.map(function (err) { return (_jsx(Text, { theme: TextTheme.ERROR, text: validateErrorsTranslates[err] }, err)); }), _jsx(ProfileCard, { data: dataForm, error: error, isLoading: isLoading, onChangeFirstname: onChangeFirstname, onChangeLastname: onChangeLastname, readonly: readonly, onChangeCity: onChangeCity, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }, void 0)] }), void 0) }), void 0));
 };
 export default ProfilePage;

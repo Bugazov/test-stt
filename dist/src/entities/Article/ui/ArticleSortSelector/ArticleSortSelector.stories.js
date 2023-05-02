@@ -10,10 +10,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Provider } from 'react-redux';
-import { createReduxStore } from 'app/providers/StoreProvider/config/store';
-export var StoreProvider = function (props) {
-    var children = props.children, initialState = props.initialState, asyncReducers = props.asyncReducers;
-    var store = createReduxStore(initialState, asyncReducers);
-    return (_jsx(Provider, __assign({ store: store }, { children: children }), void 0));
+import { ArticleSortSelector } from './ArticleSortSelector';
+export default {
+    title: 'shared/ArticleSortSelector',
+    component: ArticleSortSelector,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 };
+var Template = function (args) { return _jsx(ArticleSortSelector, __assign({}, args), void 0); };
+export var Normal = Template.bind({});
+Normal.args = {};

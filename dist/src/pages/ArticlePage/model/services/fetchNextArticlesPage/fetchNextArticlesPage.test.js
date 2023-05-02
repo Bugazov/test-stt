@@ -34,42 +34,57 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getArticlesPageLimit, getArticlesPageOrder, getArticlesPagePage, getArticlesPageSearch, getArticlesPageSort, } from 'pages/ArticlePage/model/selectors/articlesPageSelectors';
-export var fetchArticlesList = createAsyncThunk('articlesPage/fetchArticlesList', function (props, thunkApi) { return __awaiter(void 0, void 0, void 0, function () {
-    var extra, rejectWithValue, getState, limit, sort, order, search, page, response, e_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                extra = thunkApi.extra, rejectWithValue = thunkApi.rejectWithValue, getState = thunkApi.getState;
-                limit = getArticlesPageLimit(getState());
-                sort = getArticlesPageSort(getState());
-                order = getArticlesPageOrder(getState());
-                search = getArticlesPageSearch(getState());
-                page = getArticlesPagePage(getState());
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, extra.api.get('/articles', {
-                        params: {
-                            _expand: 'user',
-                            _limit: limit,
-                            _page: page,
-                            _sort: sort,
-                            _order: order,
-                            q: search,
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchArticlesList } from 'pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from './fetchNextArticlesPage';
+jest.mock('../fetchArticlesList/fetchArticlesList');
+describe('fetchNextArticlesPage.test', function () {
+    test('success', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var thunk;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+                        articlesPage: {
+                            page: 2,
+                            ids: [],
+                            entities: {},
+                            limit: 5,
+                            isLoading: false,
+                            hasMore: true,
                         },
-                    })];
-            case 2:
-                response = _a.sent();
-                if (!response.data) {
-                    throw new Error();
-                }
-                return [2 /*return*/, response.data];
-            case 3:
-                e_1 = _a.sent();
-                return [2 /*return*/, rejectWithValue('error')];
-            case 4: return [2 /*return*/];
-        }
-    });
-}); });
+                    });
+                    return [4 /*yield*/, thunk.callThunk()];
+                case 1:
+                    _a.sent();
+                    expect(thunk.dispatch).toBeCalledTimes(4);
+                    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    test('fetchAritcleList not called', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var thunk;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+                        articlesPage: {
+                            page: 2,
+                            ids: [],
+                            entities: {},
+                            limit: 5,
+                            isLoading: false,
+                            hasMore: false,
+                        },
+                    });
+                    return [4 /*yield*/, thunk.callThunk()];
+                case 1:
+                    _a.sent();
+                    expect(thunk.dispatch).toBeCalledTimes(2);
+                    expect(fetchArticlesList).not.toHaveBeenCalled();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});

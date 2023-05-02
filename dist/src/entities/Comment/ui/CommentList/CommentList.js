@@ -23,6 +23,6 @@ export var CommentList = memo(function (props) {
         return (_jsxs("div", __assign({ className: classNames(cls.CommentList, {}, [className]) }, { children: [_jsx(CommentCard, { isLoading: true }, void 0), _jsx(CommentCard, { isLoading: true }, void 0), _jsx(CommentCard, { isLoading: true }, void 0)] }), void 0));
     }
     return (_jsx("div", __assign({ className: classNames(cls.CommentList, {}, [className]) }, { children: (comments === null || comments === void 0 ? void 0 : comments.length)
-            ? comments.map(function (comment) { return (_jsx(CommentCard, { isLoading: isLoading, className: cls.comment, comment: comment }, void 0)); })
+            ? comments.map(function (comment) { return (_jsx(CommentCard, { isLoading: isLoading, className: cls.comment, comment: comment }, comment.id)); })
             : _jsx(Text, { text: t('Комментарии отсутствуют') }, void 0) }), void 0));
 });
