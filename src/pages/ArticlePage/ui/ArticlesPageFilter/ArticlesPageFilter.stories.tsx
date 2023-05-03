@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticlesPageFilter } from './ArticlesPageFilter';
 
 export default {
-    title: 'shared/ArticlesPageFilter',
+    title: 'pages/ArticlesPageFilter',
     component: ArticlesPageFilter,
     argTypes: {
         backgroundColor: { control: 'color' },
