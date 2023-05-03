@@ -1,12 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import {
     getArticlesPageLimit,
-    getArticlesPageOrder, getArticlesPagePage, getArticlesPageSearch,
+    getArticlesPageOrder,
+    getArticlesPagePage,
+    getArticlesPageSearch,
     getArticlesPageSort,
-} from 'pages/ArticlePage/model/selectors/articlesPageSelectors';
-import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+    getArticlesPageType,
+} from '../../../model/selectors/articlesPageSelectors';
 
 interface fetchArticleListProps {
     replace?:boolean
@@ -25,6 +28,7 @@ export const fetchArticlesList = createAsyncThunk<
             const order = getArticlesPageOrder(getState());
             const search = getArticlesPageSearch(getState());
             const page = getArticlesPagePage(getState());
+            const type = getArticlesPageType(getState());
 
             try {
                 addQueryParams({
@@ -37,6 +41,7 @@ export const fetchArticlesList = createAsyncThunk<
                         _page: page,
                         _sort: sort,
                         _order: order,
+                        type: type === ArticleType.ALL ? undefined : type,
                         q: search,
                     },
                 });

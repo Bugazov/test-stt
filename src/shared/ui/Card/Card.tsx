@@ -20,7 +20,7 @@ export const Card = memo((props: CardProps) => {
 
     return (
         <div
-            className={classNames(cls.Card, {}, [className])}
+            className={classNames(cls.Card, {}, [className, cls[theme]])}
             {...otherProps}
         >
             {children}
