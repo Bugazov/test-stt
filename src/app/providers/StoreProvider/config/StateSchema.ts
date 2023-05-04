@@ -8,7 +8,7 @@ import { UserSchema } from 'entities/User';
 import { loginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailPage';
+import { ArticleDetailsCommentsSchema, ArticleDetailsPageSchema } from 'pages/ArticleDetailPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
@@ -18,12 +18,13 @@ export interface StateSchema {
     user: UserSchema;
     scrollSave:ScrollSaveSchema,
 
-    loginForm?: loginSchema,
-    profile?:ProfileSchema,
-    articleDetails?:ArticleDetailsSchema,
-    articleDetailsComments?:ArticleDetailsCommentsSchema,
-    addCommentForm?:AddCommentFormSchema,
-    articlesPage?: ArticlesPageSchema
+    // Асинхронные редюсеры
+    loginForm?: loginSchema;
+    profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
+    addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

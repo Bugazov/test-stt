@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
@@ -9,16 +8,20 @@ import {
 describe('articleDetails', () => {
     test('should return isLoading', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {
-                isLoading: true,
+            articleDetailsPage: {
+                comments: {
+                    isLoading: true,
+                },
             },
         };
         expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(true);
     });
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {
-                error: 'error',
+            articleDetailsPage: {
+                comments: {
+                    error: 'ERROR',
+                },
             },
         };
         expect(getArticleCommentsError(state as StateSchema)).toEqual('error');

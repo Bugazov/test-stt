@@ -25,9 +25,11 @@ const data = [
 describe('fetchArticleById', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(fetchCommentsByArticleId, {
-            articleDetailsComments: {
-                ids: [],
-                entities: {},
+            articleDetailsPage: {
+                comments: {
+                    ids: [],
+                    entities: {},
+                },
             },
         });
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
