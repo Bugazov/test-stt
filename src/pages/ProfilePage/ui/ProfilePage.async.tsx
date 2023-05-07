@@ -1,6 +1,3 @@
 import { lazy } from 'react';
 
-export const ProfilePageAsync = lazy(() => new Promise((resolve) => {
-    // @ts-ignore
-    resolve(import('./ProfilePage'));
-}));
+export const ProfilePageAsync = lazy(() => import('./ProfilePage'));

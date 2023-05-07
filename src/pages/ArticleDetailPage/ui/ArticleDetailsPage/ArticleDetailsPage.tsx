@@ -24,6 +24,7 @@ import {
     fetchArticleRecommendations,
 } from 'pages/ArticleDetailPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -48,9 +49,6 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
     const onSendComment = useCallback((text:string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -68,9 +66,7 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
