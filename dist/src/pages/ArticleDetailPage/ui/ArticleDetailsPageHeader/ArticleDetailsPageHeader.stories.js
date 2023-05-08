@@ -10,14 +10,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { ArticleViewSelector } from './ArticleViewSelector';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 export default {
-    title: 'entities/ArticleViewSelector',
-    component: ArticleViewSelector,
+    title: 'shared/ArticleDetailsPageHeader',
+    component: ArticleDetailsPageHeader,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
 };
-var Template = function (args) { return _jsx(ArticleViewSelector, __assign({}, args), void 0); };
+var Template = function (args) { return _jsx(ArticleDetailsPageHeader, __assign({}, args), void 0); };
 export var Normal = Template.bind({});
 Normal.args = {};

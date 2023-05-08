@@ -2,16 +2,20 @@ import { getArticleCommentsError, getArticleCommentsIsLoading, } from './comment
 describe('articleDetails', function () {
     test('should return isLoading', function () {
         var state = {
-            articleDetailsComments: {
-                isLoading: true,
+            articleDetailsPage: {
+                comments: {
+                    isLoading: true,
+                },
             },
         };
         expect(getArticleCommentsIsLoading(state)).toEqual(true);
     });
     test('should return error', function () {
         var state = {
-            articleDetailsComments: {
-                error: 'error',
+            articleDetailsPage: {
+                comments: {
+                    error: 'ERROR',
+                },
             },
         };
         expect(getArticleCommentsError(state)).toEqual('error');

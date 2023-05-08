@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { ArticleSortSelector } from './ArticleSortSelector';
 export default {
-    title: 'shared/ArticleSortSelector',
+    title: 'entities/ArticleSortSelector',
     component: ArticleSortSelector,
     argTypes: {
         backgroundColor: { control: 'color' },

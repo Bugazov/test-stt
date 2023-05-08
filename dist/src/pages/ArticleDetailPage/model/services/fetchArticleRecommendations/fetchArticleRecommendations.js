@@ -34,66 +34,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import axios from 'axios';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
-jest.mock('axios');
-var mockedAxios = jest.mocked(axios, true);
-var data = [
-    {
-        id: '1',
-        text: 'some comment',
-        articleId: '1',
-        userId: '1',
-    },
-    {
-        id: '2',
-        text: 'some comment 2',
-        articleId: '1',
-        userId: '1',
-    },
-];
-describe('fetchArticleById', function () {
-    test('success', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var thunk, result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    thunk = new TestAsyncThunk(fetchCommentsByArticleId, {
-                        articleDetailsPage: {
-                            comments: {
-                                ids: [],
-                                entities: {},
-                            },
+import { createAsyncThunk } from '@reduxjs/toolkit';
+export var fetchArticleRecommendations = createAsyncThunk('articleDetailsPage/fetchArticleRecommendations', function (props, thunkApi) { return __awaiter(void 0, void 0, void 0, function () {
+    var extra, rejectWithValue, response, e_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                extra = thunkApi.extra, rejectWithValue = thunkApi.rejectWithValue;
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, extra.api.get('/articles', {
+                        params: {
+                            _limit: 4,
                         },
-                    });
-                    thunk.api.get.mockReturnValue(Promise.resolve({ data: data }));
-                    return [4 /*yield*/, thunk.callThunk('1')];
-                case 1:
-                    result = _a.sent();
-                    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-                    expect(mockedAxios.get).toHaveBeenCalled();
-                    expect(result.meta.requestStatus).toBe('fulfilled');
-                    expect(result.payload).toEqual(data);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    test('error ', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var thunk, result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    thunk = new TestAsyncThunk(fetchCommentsByArticleId);
-                    thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-                    return [4 /*yield*/, thunk.callThunk('1')];
-                case 1:
-                    result = _a.sent();
-                    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-                    expect(mockedAxios.get).toHaveBeenCalled();
-                    expect(result.meta.requestStatus).toBe('rejected');
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
+                    })];
+            case 2:
+                response = _a.sent();
+                if (!response.data) {
+                    throw new Error();
+                }
+                return [2 /*return*/, response.data];
+            case 3:
+                e_1 = _a.sent();
+                return [2 /*return*/, rejectWithValue('error')];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); });

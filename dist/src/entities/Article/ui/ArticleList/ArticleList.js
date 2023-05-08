@@ -15,15 +15,19 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleView } from 'entities/Article/model/types/article';
+import Text from 'shared/ui/Text/Text';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 var getSkeletons = function (view) { return new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map(function (item, index) { return (_jsx(ArticleListItemSkeleton, { className: cls.card, view: view }, index)); }); };
 export var ArticleList = memo(function (props) {
-    var className = props.className, articles = props.articles, _a = props.view, view = _a === void 0 ? ArticleView.SMALL : _a, isLoading = props.isLoading;
+    var className = props.className, articles = props.articles, _a = props.view, view = _a === void 0 ? ArticleView.SMALL : _a, isLoading = props.isLoading, target = props.target;
     var t = useTranslation().t;
-    var renderArticle = function (article) { return (_jsx(ArticleListItem, { article: article, view: view, className: cls.card }, article.id)); };
+    var renderArticle = function (article) { return (_jsx(ArticleListItem, { article: article, view: view, className: cls.card, target: target }, article.id)); };
+    if (!isLoading && !articles.length) {
+        return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: _jsx(Text, { title: t('Статьи не найдены') }, void 0) }), void 0));
+    }
     return (_jsxs("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: [articles.length > 0
                 ? articles.map(renderArticle)
                 : null, isLoading && getSkeletons(view)] }), void 0));

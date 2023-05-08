@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { ArticleView } from 'entities/Article';
+import { ArticleType, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
@@ -22,6 +22,7 @@ var articlesPageSlice = createSlice({
         search: '',
         sort: ArticleSortField.TITLE,
         order: 'asc',
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: function (state, action) {
@@ -45,6 +46,9 @@ var articlesPageSlice = createSlice({
         },
         setSearch: function (state, action) {
             state.search = action.payload;
+        },
+        setType: function (state, action) {
+            state.type = action.payload;
         },
     },
     extraReducers: function (builder) {

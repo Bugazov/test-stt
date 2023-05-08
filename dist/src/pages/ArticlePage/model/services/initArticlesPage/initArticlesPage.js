@@ -38,12 +38,24 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getArticlesPageInited, } from 'pages/ArticlePage/model/selectors/articlesPageSelectors';
 import { articlesPageActions } from 'pages/ArticlePage/model/slices/articlesPageSlice';
 import { fetchArticlesList } from 'pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
-export var initArticlesPage = createAsyncThunk('articlesPage/fetchNextArticlesPage', function (_, thunkApi) { return __awaiter(void 0, void 0, void 0, function () {
-    var getState, dispatch, _inited;
+export var initArticlesPage = createAsyncThunk('articlesPage/fetchNextArticlesPage', function (searchParams, thunkApi) { return __awaiter(void 0, void 0, void 0, function () {
+    var getState, dispatch, _inited, orderFromUrl, sortFromUrl, searchFromUrl;
     return __generator(this, function (_a) {
         getState = thunkApi.getState, dispatch = thunkApi.dispatch;
         _inited = getArticlesPageInited(getState());
         if (!_inited) {
+            orderFromUrl = searchParams.get('order');
+            sortFromUrl = searchParams.get('sort');
+            searchFromUrl = searchParams.get('search');
+            if (orderFromUrl) {
+                dispatch(articlesPageActions.setOrder(orderFromUrl));
+            }
+            if (sortFromUrl) {
+                dispatch(articlesPageActions.setSort(sortFromUrl));
+            }
+            if (searchFromUrl) {
+                dispatch(articlesPageActions.setSearch(searchFromUrl));
+            }
             dispatch(articlesPageActions.initState());
             dispatch(fetchArticlesList({}));
         }

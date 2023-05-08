@@ -21,6 +21,7 @@ import { DynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/DynamicModul
 import { Page } from 'widgets/Page/Page';
 import { initArticlesPage } from 'pages/ArticlePage/model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilter } from 'pages/ArticlePage/ui/ArticlesPageFilter/ArticlesPageFilter';
+import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView, } from '../../model/selectors/articlesPageSelectors';
@@ -39,8 +40,9 @@ var ArticlePage = function (_a) {
     var onLoadNextPart = useCallback(function () {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
+    var searchParams = useSearchParams()[0];
     useInitialEffect(function () {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
     return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: false }, { children: _jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx(ArticlesPageFilter, {}, void 0), _jsx(ArticleList, { isLoading: isLoading, view: view, articles: articles, className: cls.list }, void 0)] }), void 0) }), void 0));
 };

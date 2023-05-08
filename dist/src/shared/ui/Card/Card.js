@@ -24,7 +24,12 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cls from './Card.module.scss';
+export var CardTheme;
+(function (CardTheme) {
+    CardTheme["NORMAL"] = "normal";
+    CardTheme["OUTLINED"] = "outlined";
+})(CardTheme || (CardTheme = {}));
 export var Card = memo(function (props) {
-    var className = props.className, children = props.children, otherProps = __rest(props, ["className", "children"]);
-    return (_jsx("div", __assign({ className: classNames(cls.Card, {}, [className]) }, otherProps, { children: children }), void 0));
+    var className = props.className, children = props.children, _a = props.theme, theme = _a === void 0 ? CardTheme.NORMAL : _a, otherProps = __rest(props, ["className", "children", "theme"]);
+    return (_jsx("div", __assign({ className: classNames(cls.Card, {}, [className, cls[theme]]) }, otherProps, { children: children }), void 0));
 });
