@@ -9,8 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { classNames } from 'shared/lib/classNames/classNames';
+import { jsx as _jsx } from "react/jsx-runtime";
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
@@ -18,9 +17,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page/Page';
 import { initArticlesPage } from 'pages/ArticlePage/model/services/initArticlesPage/initArticlesPage';
-import { ArticlesPageFilter } from 'pages/ArticlePage/ui/ArticlesPageFilter/ArticlesPageFilter';
 import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
@@ -44,6 +41,6 @@ var ArticlePage = function (_a) {
     useInitialEffect(function () {
         dispatch(initArticlesPage(searchParams));
     });
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: false }, { children: _jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, className: classNames(cls.ArticlePage, {}, [className]) }, { children: [_jsx(ArticlesPageFilter, {}, void 0), _jsx(ArticleList, { isLoading: isLoading, view: view, articles: articles, className: cls.list }, void 0)] }), void 0) }), void 0));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: false }, { children: _jsx(ArticleList, { isLoading: isLoading, view: view, articles: articles, className: cls.list, onLoadNextPart: onLoadNextPart }, void 0) }), void 0));
 };
 export default memo(ArticlePage);

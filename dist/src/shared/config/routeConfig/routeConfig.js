@@ -6,6 +6,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailPage';
+import ArticleEditPage from 'pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage';
 export var AppRoutes;
 (function (AppRoutes) {
     AppRoutes["MAIN"] = "main";
@@ -14,6 +15,8 @@ export var AppRoutes;
     AppRoutes["PROFILE"] = "profile";
     AppRoutes["ARTICLES"] = "articles";
     AppRoutes["ARTICLES_DETAILS"] = "articles_details";
+    AppRoutes["ARTICLE_EDIT"] = "article_edit";
+    AppRoutes["ARTICLE_CREATE"] = "article_create";
 })(AppRoutes || (AppRoutes = {}));
 export var RoutePath = (_a = {},
     _a[AppRoutes.MAIN] = '/',
@@ -21,6 +24,8 @@ export var RoutePath = (_a = {},
     _a[AppRoutes.PROFILE] = '/profile/',
     _a[AppRoutes.ARTICLES] = '/articles',
     _a[AppRoutes.ARTICLES_DETAILS] = '/articles/',
+    _a[AppRoutes.ARTICLE_EDIT] = '/articles/:id/edit',
+    _a[AppRoutes.ARTICLE_CREATE] = '/articles/new',
     // последний
     _a[AppRoutes.NOT_FOUND] = '*',
     _a);
@@ -50,6 +55,16 @@ export var routeConfig = (_b = {},
     _b[AppRoutes.ARTICLES_DETAILS] = {
         path: "".concat(RoutePath.articles_details, ":id"),
         element: _jsx(ArticleDetailsPage, {}, void 0),
+        authOnly: true,
+    },
+    _b[AppRoutes.ARTICLE_CREATE] = {
+        path: "".concat(RoutePath.article_create),
+        element: _jsx(ArticleEditPage, {}, void 0),
+        authOnly: true,
+    },
+    _b[AppRoutes.ARTICLE_EDIT] = {
+        path: "".concat(RoutePath.article_edit),
+        element: _jsx(ArticleEditPage, {}, void 0),
         authOnly: true,
     },
     _b);

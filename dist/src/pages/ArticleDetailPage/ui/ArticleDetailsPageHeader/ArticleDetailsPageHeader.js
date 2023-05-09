@@ -9,18 +9,28 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getArticleDetailsData } from 'entities/Article';
+import { getCanEditArticle } from 'pages/ArticleDetailPage/model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
 export var ArticleDetailsPageHeader = memo(function (props) {
     var className = props.className;
     var t = useTranslation().t;
+    var navigate = useNavigate();
+    var canEdit = useSelector(getCanEditArticle);
+    var article = useSelector(getArticleDetailsData);
     var onBackToList = useCallback(function () {
         navigate(RoutePath.articles);
     }, [navigate]);
-    return (_jsx("div", __assign({ className: classNames(cls.ArticleDetailsPageHeader, {}, [className]) }, { children: _jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onBackToList }, { children: t('Назад к списку') }), void 0) }), void 0));
+    var onEditArticle = useCallback(function () {
+        navigate("".concat(RoutePath.articles_details).concat(article === null || article === void 0 ? void 0 : article.id, "/edit"));
+    }, [navigate, article === null || article === void 0 ? void 0 : article.id]);
+    return (_jsxs("div", __assign({ className: classNames(cls.ArticleDetailsPageHeader, {}, [className]) }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onBackToList }, { children: t('Назад к списку') }), void 0), canEdit && (_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onEditArticle, className: cls.editBtn }, { children: t('Редактировать') }), void 0))] }), void 0));
 });

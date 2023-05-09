@@ -44,7 +44,11 @@ export var fetchArticleById = createAsyncThunk('article/fetchArticleById', funct
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, extra.api.get("/articles/".concat(id))];
+                return [4 /*yield*/, extra.api.get("/articles/".concat(id), {
+                        params: {
+                            _expand: 'user',
+                        },
+                    })];
             case 2:
                 response = _a.sent();
                 if (!response.data) {

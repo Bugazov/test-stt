@@ -31,6 +31,7 @@ import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetailPage/mode
 import { getArticleRecommendations } from 'pages/ArticleDetailPage/model/slices/articleDetailsPageRecommendationsSlice';
 import { fetchArticleRecommendations, } from 'pages/ArticleDetailPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 var reducers = {
@@ -56,6 +57,6 @@ var ArticleDetailPage = function (_a) {
     if (!id) {
         return (_jsx(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: t('Стаья не найдена') }), void 0));
     }
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: [_jsx(ArticleDetails, { id: id }, void 0), _jsx(Text, { size: TextSize.L, className: cls.commentTitle, title: t('Рекомендуем') }, void 0), _jsx(ArticleList, { articles: recommendations, isLoading: recommendationsIsLoading, className: cls.recommendations, target: "_blank" }, void 0), _jsx(Text, { className: cls.commentTitle, title: t('Комментарии') }, void 0), _jsx(AddCommentForm, { onSendComment: onSendComment }, void 0), _jsx(CommentList, { comments: comments, isLoading: commentsIsLoading }, void 0)] }), void 0) }), void 0));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: [_jsx(ArticleDetailsPageHeader, {}, void 0), _jsx(ArticleDetails, { id: id }, void 0), _jsx(Text, { size: TextSize.L, className: cls.commentTitle, title: t('Рекомендуем') }, void 0), _jsx(ArticleList, { articles: recommendations, isLoading: recommendationsIsLoading, className: cls.recommendations, target: "_blank" }, void 0), _jsx(Text, { className: cls.commentTitle, title: t('Комментарии') }, void 0), _jsx(AddCommentForm, { onSendComment: onSendComment }, void 0), _jsx(CommentList, { comments: comments, isLoading: commentsIsLoading }, void 0)] }), void 0) }), void 0));
 };
 export default memo(ArticleDetailPage);

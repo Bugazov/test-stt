@@ -16,6 +16,7 @@ import cls from './Text.module.scss';
 export var TextTheme;
 (function (TextTheme) {
     TextTheme["PRIMARY"] = "primary";
+    TextTheme["INVERTED"] = "inverted";
     TextTheme["ERROR"] = "error";
 })(TextTheme || (TextTheme = {}));
 export var TextSize;

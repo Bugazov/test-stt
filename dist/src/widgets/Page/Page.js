@@ -20,6 +20,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
+export var PAGE_ID = 'PAGE_ID';
 export var Page = memo(function (props) {
     var className = props.className, children = props.children, onScrollEnd = props.onScrollEnd;
     var wrapperRef = useRef();
