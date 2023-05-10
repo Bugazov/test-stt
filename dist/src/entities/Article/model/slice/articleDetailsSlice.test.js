@@ -1,4 +1,4 @@
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../slice/articleDetailsSlice';
 var data = {
     id: '1',

@@ -10,17 +10,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Text } from '../Text/Text';
-import { Card } from './Card';
-export default {
-    title: 'shared/Card',
-    component: Card,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-};
-var Template = function (args) { return _jsx(Card, __assign({}, args), void 0); };
-export var Normal = Template.bind({});
-Normal.args = {
-    children: _jsx(Text, { title: "test", text: "text text" }, void 0),
+import { Flex } from '../Flex/Flex';
+export var VStack = function (props) {
+    var _a = props.align, align = _a === void 0 ? 'start' : _a;
+    return (_jsx(Flex, __assign({}, props, { direction: "column", align: align }), void 0));
 };

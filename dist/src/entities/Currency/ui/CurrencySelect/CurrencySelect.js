@@ -2,8 +2,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
-import { Currency } from 'entities/Currency';
 import { memo, useCallback } from 'react';
+import { Currency } from '../../model/types/currency';
 var options = [
     { value: Currency.EUR, content: Currency.EUR },
     { value: Currency.RUB, content: Currency.RUB },

@@ -49,7 +49,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from '../Button/Button';
 export var LangSwitcher = memo(function (_a) {
     var className = _a.className, short = _a.short;
     var _b = useTranslation(), t = _b.t, i18n = _b.i18n;

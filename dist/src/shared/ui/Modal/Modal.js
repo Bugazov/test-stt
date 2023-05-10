@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback, useEffect, useRef, useState, } from 'react';
-import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 var ANIMATION_DELAY = 300;
 export var Modal = function (props) {

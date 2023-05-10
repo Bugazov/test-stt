@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { Loader } from '../Loader/Loader';
 import cls from './PageLoader.module.scss';
 export var PageLoader = function (_a) {
     var className = _a.className;

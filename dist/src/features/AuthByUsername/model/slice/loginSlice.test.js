@@ -1,4 +1,4 @@
-import { loginReducer } from 'features/AuthByUsername';
+import { loginReducer } from '../slice/loginSlice';
 import { loginActions } from './loginSlice';
 describe('loginSlice', function () {
     test('test set password', function () {

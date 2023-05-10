@@ -42,5 +42,5 @@ export var Page = memo(function (props) {
             path: pathname,
         }));
     }, 500);
-    return (_jsxs("section", __assign({ ref: wrapperRef, onScroll: onScroll, className: classNames(cls.Page, {}, [className]) }, { children: [children, onScrollEnd ? _jsx("div", { className: cls.trigger, ref: triggerRef }, void 0) : null] }), void 0));
+    return (_jsxs("section", __assign({ ref: wrapperRef, onScroll: onScroll, className: classNames(cls.Page, {}, [className]), id: PAGE_ID }, { children: [children, onScrollEnd ? _jsx("div", { className: cls.trigger, ref: triggerRef }, void 0) : null] }), void 0));
 });

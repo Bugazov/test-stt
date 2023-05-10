@@ -12,6 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
+// eslint-disable-next-line ulbi-tv-plugin/path-checker
 import { Card, CardTheme } from 'shared/ui/Card/Card';
 import cls from './Tabs.module.scss';
 export var Tabs = memo(function (props) {

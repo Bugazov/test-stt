@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Input } from 'shared/ui/Input/Input';
+import { Input } from '../Input/Input';
 export default {
     title: 'shared/Input',
     component: Input,

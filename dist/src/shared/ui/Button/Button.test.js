@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from '../Button/Button';
 describe('Button', function () {
     test('Test render', function () {
         render(_jsx(Button, { children: "TEST" }, void 0));
