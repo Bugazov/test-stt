@@ -1,11 +1,9 @@
-import { StateSchema } from 'app/providers/StoreProvider';
 import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
-import sideBarItem from 'widgets/Sidebar/ui/SideBarItem/SideBarItem';
 import { SideBarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(

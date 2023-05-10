@@ -1,5 +1,4 @@
-import { loginReducer } from 'features/AuthByUsername';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { loginReducer } from '../slice/loginSlice';
 import { loginSchema } from '../types/loginSchema';
 import { loginActions } from './loginSlice';
 

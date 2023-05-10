@@ -1,10 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { useTranslation } from 'react-i18next';
-import { SideBarItemType } from 'widgets/Sidebar/model/types/sidebar';
+import { SideBarItemType } from '../../model/types/sidebar';
 import cls from './SideBarItem.module.scss';
 
 interface SideBarItemProps {

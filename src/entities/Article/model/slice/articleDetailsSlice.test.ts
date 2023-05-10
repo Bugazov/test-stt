@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../slice/articleDetailsSlice';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
