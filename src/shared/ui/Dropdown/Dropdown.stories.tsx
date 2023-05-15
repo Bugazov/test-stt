@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from '../../../../../68/production-project-d753ac080d36b325071519bb0c9007b2c005d023/src/shared/ui/Button/Button';
+import { Button } from '../Button/Button';
 import { Dropdown } from './Dropdown';
 
 export default {
