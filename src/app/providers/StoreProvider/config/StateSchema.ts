@@ -3,7 +3,6 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { loginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
@@ -13,6 +12,7 @@ import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema;

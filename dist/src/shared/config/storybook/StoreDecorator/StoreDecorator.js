@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername';
-import { profileReducer } from 'entities/Profile';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 var defaultAsyncReducers = {
     loginForm: loginReducer,

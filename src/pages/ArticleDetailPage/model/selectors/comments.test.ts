@@ -20,7 +20,7 @@ describe('articleDetails', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetailsPage: {
                 comments: {
-                    error: 'ERROR',
+                    error: 'error',
                 },
             },
         };

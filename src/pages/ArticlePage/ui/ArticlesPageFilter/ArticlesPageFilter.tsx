@@ -110,6 +110,7 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
             <ArticleTypeTabs
                 value={type}
                 onChangeType={onChangeType}
+                className={cls.tabs}
             />
 
         </div>

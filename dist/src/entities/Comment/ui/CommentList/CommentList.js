@@ -14,15 +14,15 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './CommentList.module.scss';
+import { VStack } from 'shared/ui/Stack';
 import { CommentCard } from '../CommentCard/CommentCard';
 export var CommentList = memo(function (props) {
     var className = props.className, isLoading = props.isLoading, comments = props.comments;
     var t = useTranslation().t;
     if (isLoading) {
-        return (_jsxs("div", __assign({ className: classNames(cls.CommentList, {}, [className]) }, { children: [_jsx(CommentCard, { isLoading: true }, void 0), _jsx(CommentCard, { isLoading: true }, void 0), _jsx(CommentCard, { isLoading: true }, void 0)] }), void 0));
+        return (_jsxs(VStack, __assign({ gap: "16", className: classNames('', {}, [className]) }, { children: [_jsx(CommentCard, { isLoading: true }, void 0), _jsx(CommentCard, { isLoading: true }, void 0), _jsx(CommentCard, { isLoading: true }, void 0)] }), void 0));
     }
-    return (_jsx("div", __assign({ className: classNames(cls.CommentList, {}, [className]) }, { children: (comments === null || comments === void 0 ? void 0 : comments.length)
-            ? comments.map(function (comment) { return (_jsx(CommentCard, { isLoading: isLoading, className: cls.comment, comment: comment }, comment.id)); })
+    return (_jsx(VStack, __assign({ gap: "16", max: true, className: classNames('', {}, [className]) }, { children: (comments === null || comments === void 0 ? void 0 : comments.length)
+            ? comments.map(function (comment) { return (_jsx(CommentCard, { isLoading: isLoading, comment: comment }, comment.id)); })
             : _jsx(Text, { text: t('Комментарии отсутствуют') }, void 0) }), void 0));
 });

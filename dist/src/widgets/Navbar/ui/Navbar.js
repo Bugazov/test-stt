@@ -20,6 +20,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './Navbar.module.scss';
 export var Navbar = memo(function (_a) {
     var className = _a.className;
@@ -37,7 +39,16 @@ export var Navbar = memo(function (_a) {
         dispatch(userActions.logout());
     }, [dispatch]);
     if (authdata) {
-        return (_jsxs("header", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(Text, { className: cls.appName, title: t('Bombibbo'), theme: TextTheme.INVERTED }, void 0), _jsx(AppLink, __assign({ to: RoutePath.article_create, theme: AppLinkTheme.SECONDARY }, { children: t('Создание статьи') }), void 0), _jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onLogout }, { children: t('Выйти') }), void 0)] }), void 0));
+        return (_jsxs("header", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(Text, { className: cls.appName, title: t('Bombibbo'), theme: TextTheme.INVERTED }, void 0), _jsx(AppLink, __assign({ to: RoutePath.article_create, theme: AppLinkTheme.SECONDARY }, { children: t('Создание статьи') }), void 0), _jsx(Dropdown, { direction: "bottom left", className: cls.dropdown, items: [
+                        {
+                            content: t('Профиль'),
+                            href: RoutePath.profile + authdata.id,
+                        },
+                        {
+                            content: t('Выйти'),
+                            onClick: onLogout,
+                        },
+                    ], trigger: _jsx(Avatar, { size: 30, src: authdata.avatar }, void 0) }, void 0)] }), void 0));
     }
     return (_jsxs("header", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onShowModal }, { children: t('Войти') }), void 0), isAuthModal && (_jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal }, void 0))] }), void 0));
 });

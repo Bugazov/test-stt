@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import Text from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -19,7 +19,7 @@ import { getProfileData, getProfileReadonly, profileActions, updateProfileData, 
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useCallback } from 'react';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 export var ProfilePageHeader = function (_a) {
     var className = _a.className;
     var t = useTranslation('profile').t;
@@ -37,6 +37,8 @@ export var ProfilePageHeader = function (_a) {
     var onSave = useCallback(function () {
         dispatch(updateProfileData());
     }, [dispatch]);
-    return (_jsxs("div", __assign({ className: classNames(cls.ProfilePageHeader, {}, [className]) }, { children: [_jsx(Text, { title: t('Профиль') }, void 0), canEdit && (_jsx("div", __assign({ className: cls.btnWrapper }, { children: readonly ? (_jsx(Button, __assign({ className: cls.editBtn, theme: ButtonTheme.OUTLINE, onClick: onEdit }, { children: t('Редактировать') }), void 0))
-                    : (_jsxs(_Fragment, { children: [_jsx(Button, __assign({ className: cls.editBtn, theme: ButtonTheme.OUTLINE_RED, onClick: onCancelEdit }, { children: t('Отменить') }), void 0), _jsx(Button, __assign({ className: cls.saveBtn, theme: ButtonTheme.OUTLINE, onClick: onSave }, { children: t('Сохранить') }), void 0)] }, void 0)) }), void 0))] }), void 0));
+    return (_jsxs(HStack, __assign({ max: true, justify: "between", className: classNames('', {}, [className]) }, { children: [_jsx(Text, { title: t('Профиль') }, void 0), canEdit && (
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            _jsx(_Fragment, { children: readonly ? (_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onEdit }, { children: t('Редактировать') }), void 0))
+                    : (_jsxs(HStack, __assign({ gap: "8" }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE_RED, onClick: onCancelEdit }, { children: t('Отменить') }), void 0), _jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onSave }, { children: t('Сохранить') }), void 0)] }), void 0)) }, void 0))] }), void 0));
 };
