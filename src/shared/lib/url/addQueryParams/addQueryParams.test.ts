@@ -1,7 +1,7 @@
 import { getQueryParams } from './addQueryParams';
 
-describe('shared/lib/url/addQueryParams', () => {
-    test('test with only params', () => {
+describe('shared/url/addQueryParams', () => {
+    test('test with one param', () => {
         const params = getQueryParams({
             test: 'value',
         });
@@ -10,9 +10,9 @@ describe('shared/lib/url/addQueryParams', () => {
     test('test with multiple params', () => {
         const params = getQueryParams({
             test: 'value',
-            second: 'second',
+            second: '2',
         });
-        expect(params).toBe('?test=value&second');
+        expect(params).toBe('?test=value&second=2');
     });
     test('test with undefined', () => {
         const params = getQueryParams({
