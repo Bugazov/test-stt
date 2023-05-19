@@ -8,9 +8,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { HStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getProfileReadonly } from 'features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from 'features/editableProfileCard/model/slice/profileSlice';
-import { getProfileData } from 'features/editableProfileCard/model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 interface EditableProfileCardHeaderProps {
@@ -48,6 +48,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                         <Button
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
+                            data-testid="EditableProfileCardHeader.EditBtn"
                         >
                             {t('Редактировать')}
                         </Button>
@@ -57,6 +58,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                                 <Button
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
+                                    data-testid="EditableProfileCardHeader.CancelBtn"
                                 >
 
                                     {t('Отменить')}
@@ -64,6 +66,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                                 <Button
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
+                                    data-testid="EditableProfileCardHeader.SaveBtn"
                                 >
 
                                     {t('Сохранить')}
