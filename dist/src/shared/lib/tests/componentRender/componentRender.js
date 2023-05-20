@@ -17,6 +17,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from 'app/providers/StoreProvider';
 export function componentRender(component, options) {
     if (options === void 0) { options = {}; }
-    var _a = options.route, route = _a === void 0 ? '/' : _a, initialState = options.initialState;
-    return render(_jsx(MemoryRouter, __assign({ initialEntries: [route] }, { children: _jsx(StoreProvider, __assign({ initialState: initialState }, { children: _jsx(I18nextProvider, __assign({ i18n: i18nForTests }, { children: component }), void 0) }), void 0) }), void 0));
+    var _a = options.route, route = _a === void 0 ? '/' : _a, initialState = options.initialState, asyncReducers = options.asyncReducers;
+    return render(_jsx(MemoryRouter, __assign({ initialEntries: [route] }, { children: _jsx(StoreProvider, __assign({ asyncReducers: asyncReducers, initialState: initialState }, { children: _jsx(I18nextProvider, __assign({ i18n: i18nForTests }, { children: component }), void 0) }), void 0) }), void 0));
 }

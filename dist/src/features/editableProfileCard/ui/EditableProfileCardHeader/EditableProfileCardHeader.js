@@ -19,9 +19,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { HStack } from 'shared/ui/Stack';
 import Text from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getProfileReadonly } from 'features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from 'features/editableProfileCard/model/slice/profileSlice';
-import { getProfileData } from 'features/editableProfileCard/model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 export var EditableProfileCardHeader = memo(function (props) {
     var className = props.className;
@@ -42,6 +42,6 @@ export var EditableProfileCardHeader = memo(function (props) {
     }, [dispatch]);
     return (_jsxs(HStack, __assign({ max: true, justify: "between", className: classNames('', {}, [className]) }, { children: [_jsx(Text, { title: t('Профиль') }, void 0), canEdit && (
             // eslint-disable-next-line react/jsx-no-useless-fragment
-            _jsx(_Fragment, { children: readonly ? (_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onEdit }, { children: t('Редактировать') }), void 0))
-                    : (_jsxs(HStack, __assign({ gap: "8" }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE_RED, onClick: onCancelEdit }, { children: t('Отменить') }), void 0), _jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onSave }, { children: t('Сохранить') }), void 0)] }), void 0)) }, void 0))] }), void 0));
+            _jsx(_Fragment, { children: readonly ? (_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onEdit, "data-testid": "EditableProfileCardHeader.EditBtn" }, { children: t('Редактировать') }), void 0))
+                    : (_jsxs(HStack, __assign({ gap: "8" }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.OUTLINE_RED, onClick: onCancelEdit, "data-testid": "EditableProfileCardHeader.CancelBtn" }, { children: t('Отменить') }), void 0), _jsx(Button, __assign({ theme: ButtonTheme.OUTLINE, onClick: onSave, "data-testid": "EditableProfileCardHeader.SaveBtn" }, { children: t('Сохранить') }), void 0)] }), void 0)) }, void 0))] }), void 0));
 });

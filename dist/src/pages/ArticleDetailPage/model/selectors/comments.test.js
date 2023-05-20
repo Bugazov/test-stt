@@ -14,7 +14,7 @@ describe('articleDetails', function () {
         var state = {
             articleDetailsPage: {
                 comments: {
-                    error: 'ERROR',
+                    error: 'error',
                 },
             },
         };

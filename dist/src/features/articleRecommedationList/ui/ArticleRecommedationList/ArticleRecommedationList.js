@@ -22,8 +22,8 @@ export var ArticleRecommedationList = memo(function (props) {
     var t = useTranslation().t;
     var _a = useArticleRecommedationList(3), isLoading = _a.isLoading, data = _a.data, error = _a.error;
     console.log(data);
-    if (isLoading || error) {
+    if (isLoading || error || !data) {
         return null;
     }
-    return (_jsxs(VStack, __assign({ gap: "8", className: classNames('', {}, [className]) }, { children: [_jsx(Text, { size: TextSize.L, title: t('Рекомендуем') }, void 0), _jsx(ArticleList, { isLoading: isLoading, articles: data, target: "_blank" }, void 0)] }), void 0));
+    return (_jsxs(VStack, __assign({ gap: "8", className: classNames('', {}, [className]) }, { children: [_jsx(Text, { size: TextSize.L, title: t('Рекомендуем') }, void 0), _jsx(ArticleList, { isLoading: isLoading, articles: data, target: "_blank", virtualized: false }, void 0)] }), void 0));
 });

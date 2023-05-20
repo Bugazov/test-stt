@@ -6,9 +6,13 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailPage';
 import ArticleEditPage from 'pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { UserRole } from 'entities/User/model/types/user';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
-    authOnly?:boolean
+    authOnly?:boolean;
+    roles?:UserRole[]
 }
 
 export enum AppRoutes {
@@ -19,7 +23,9 @@ export enum AppRoutes {
     ARTICLES = 'articles',
     ARTICLES_DETAILS = 'articles_details',
     ARTICLE_EDIT = 'article_edit',
-    ARTICLE_CREATE = 'article_create'
+    ARTICLE_CREATE = 'article_create',
+    ADMIN_PANEL = 'admin_panel',
+FORBIDDEN = 'forbidden',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -30,6 +36,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLES_DETAILS]: '/articles/',
     [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
     [AppRoutes.ARTICLE_CREATE]: '/articles/new',
+    [AppRoutes.ADMIN_PANEL]: '/admin',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
     // последний
     [AppRoutes.NOT_FOUND]: '*',
 
@@ -63,6 +71,12 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
+    [AppRoutes.ADMIN_PANEL]: {
+        path: `${RoutePath.admin_panel}`,
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: [UserRole.MANAGER, UserRole.ADMIN],
+    },
     [AppRoutes.ARTICLE_CREATE]: {
         path: `${RoutePath.article_create}`,
         element: <ArticleEditPage />,
@@ -72,5 +86,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: `${RoutePath.article_edit}`,
         element: <ArticleEditPage />,
         authOnly: true,
+    },
+
+    [AppRoutes.FORBIDDEN]: {
+        path: `${RoutePath.forbidden}`,
+        element: <ForbiddenPage />,
     },
 };

@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
@@ -17,7 +17,6 @@ import { EditableProfileCard } from 'features/editableProfileCard';
 import { useParams } from 'react-router-dom';
 import Text from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 var ProfilePage = function (_a) {
     var className = _a.className;
     var id = useParams().id;
@@ -25,6 +24,6 @@ var ProfilePage = function (_a) {
     if (!id) {
         return _jsx(Text, { title: t('Не найден профиль') }, void 0);
     }
-    return (_jsx(Page, __assign({ className: classNames('', {}, [className]) }, { children: _jsxs(VStack, __assign({ max: true, gap: "16" }, { children: [_jsx(ProfilePageHeader, {}, void 0), _jsx(EditableProfileCard, { id: id }, void 0)] }), void 0) }), void 0));
+    return (_jsx(Page, __assign({ className: classNames('', {}, [className]) }, { children: _jsx(VStack, __assign({ max: true, gap: "16" }, { children: _jsx(EditableProfileCard, { id: id }, void 0) }), void 0) }), void 0));
 };
 export default ProfilePage;

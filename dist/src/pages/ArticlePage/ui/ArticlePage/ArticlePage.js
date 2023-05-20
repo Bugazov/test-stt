@@ -18,7 +18,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Page } from 'widgets/Page/Page';
 import { useSearchParams } from 'react-router-dom';
-import { ArticleInfiniteList } from 'pages/ArticlePage/ui/ArticleInfiniteList/ArticleInfiniteList';
+import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -38,6 +38,6 @@ var ArticlesPage = function (props) {
     useInitialEffect(function () {
         dispatch(initArticlesPage(searchParams));
     });
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: false }, { children: _jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, className: classNames(cls.ArticlesPage, {}, [className]) }, { children: [_jsx(ArticlesPageFilter, {}, void 0), _jsx(ArticleInfiniteList, {}, void 0)] }), void 0) }), void 0));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: false }, { children: _jsxs(Page, __assign({ onScrollEnd: onLoadNextPart, className: classNames(cls.ArticlesPage, {}, [className]) }, { children: [_jsx(ArticlesPageFilter, { className: cls.filter }, void 0), _jsx(ArticleInfiniteList, { className: cls.list }, void 0)] }), void 0) }), void 0));
 };
 export default memo(ArticlesPage);

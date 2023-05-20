@@ -19,6 +19,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from 'shared/ui/Stack';
 import { getProfileValidateErrors, } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -78,5 +79,5 @@ export var EditableProfileCard = memo(function (props) {
     var onChangeCountry = useCallback(function (country) {
         dispatch(profileActions.updateProfile({ country: country }));
     }, [dispatch]);
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs("div", __assign({ className: classNames(cls.EditableProfileCard, {}, [className]) }, { children: [_jsx(EditableProfileCardHeader, {}, void 0), (validateErrors === null || validateErrors === void 0 ? void 0 : validateErrors.length) && validateErrors.map(function (err) { return (_jsx(Text, { theme: TextTheme.ERROR, text: validateErrorsTranslates[err] }, err)); }), _jsx(ProfileCard, { data: dataForm, error: error, isLoading: isLoading, onChangeFirstname: onChangeFirstname, onChangeLastname: onChangeLastname, readonly: readonly, onChangeCity: onChangeCity, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }, void 0)] }), void 0) }), void 0));
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsxs(VStack, __assign({ className: classNames(cls.EditableProfileCard, {}, [className]), gap: "8", max: true }, { children: [_jsx(EditableProfileCardHeader, {}, void 0), (validateErrors === null || validateErrors === void 0 ? void 0 : validateErrors.length) && validateErrors.map(function (err) { return (_jsx(Text, { theme: TextTheme.ERROR, text: validateErrorsTranslates[err], "data-testid": "EditableProfileCard.Error" }, err)); }), _jsx(ProfileCard, { data: dataForm, error: error, isLoading: isLoading, onChangeFirstname: onChangeFirstname, onChangeLastname: onChangeLastname, readonly: readonly, onChangeCity: onChangeCity, onChangeAge: onChangeAge, onChangeUsername: onChangeUsername, onChangeAvatar: onChangeAvatar, onChangeCurrency: onChangeCurrency, onChangeCountry: onChangeCountry }, void 0)] }), void 0) }), void 0));
 });

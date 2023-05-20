@@ -39,13 +39,13 @@ var mapSizeToHeaderTag = (_a = {},
     _a);
 export var Text = memo(function (props) {
     var _a;
-    var className = props.className, title = props.title, text = props.text, _b = props.theme, theme = _b === void 0 ? TextTheme.PRIMARY : _b, _c = props.align, align = _c === void 0 ? TextAlign.LEFT : _c, _d = props.size, size = _d === void 0 ? TextSize.M : _d;
+    var className = props.className, title = props.title, text = props.text, _b = props.theme, theme = _b === void 0 ? TextTheme.PRIMARY : _b, _c = props.align, align = _c === void 0 ? TextAlign.LEFT : _c, _d = props.size, size = _d === void 0 ? TextSize.M : _d, _e = props["data-testid"], dataTestId = _e === void 0 ? 'Text' : _e;
     var mods = (_a = {},
         _a[cls[theme]] = true,
         _a[cls[align]] = true,
         _a[cls[size]] = true,
         _a);
     var HeaderTag = mapSizeToHeaderTag[size];
-    return (_jsxs("div", __assign({ className: classNames(cls.Text, mods, [className]) }, { children: [title && _jsx(HeaderTag, __assign({ className: cls.title }, { children: title }), void 0), text && _jsx("p", __assign({ className: cls.text }, { children: text }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classNames(cls.Text, mods, [className]) }, { children: [title && (_jsx(HeaderTag, __assign({ className: cls.title, "data-testid": "".concat(dataTestId, ".Header") }, { children: title }), void 0)), text && (_jsx("p", __assign({ className: cls.text, "data-testid": "".concat(dataTestId, ".Paragraph") }, { children: text }), void 0))] }), void 0));
 });
 export default Text;

@@ -8,6 +8,10 @@ export function getQueryParams(params) {
     });
     return "?".concat(searchParams.toString());
 }
+/**
+ * Функция добавления параметров строки запроса в URL
+ * @param params
+ */
 export function addQueryParams(params) {
     window.history.pushState(null, '', getQueryParams(params));
 }
