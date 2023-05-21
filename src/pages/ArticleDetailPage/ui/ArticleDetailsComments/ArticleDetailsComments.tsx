@@ -41,7 +41,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     });
 
     return (
-        <VStack gap="16" className={classNames(cls.ArticleDetailsComments, {}, [className])}>
+        <VStack gap="16" max className={classNames(cls.ArticleDetailsComments, {}, [className])}>
             <Text className={cls.commentTitle} title={t('Комментарии')} />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList
