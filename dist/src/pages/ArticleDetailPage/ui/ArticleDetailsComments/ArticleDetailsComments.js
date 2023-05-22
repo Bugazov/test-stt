@@ -39,5 +39,5 @@ export var ArticleDetailsComments = memo(function (props) {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticleRecommendations());
     });
-    return (_jsxs(VStack, __assign({ gap: "16", className: classNames(cls.ArticleDetailsComments, {}, [className]) }, { children: [_jsx(Text, { className: cls.commentTitle, title: t('Комментарии') }, void 0), _jsx(AddCommentForm, { onSendComment: onSendComment }, void 0), _jsx(CommentList, { comments: comments, isLoading: commentsIsLoading }, void 0)] }), void 0));
+    return (_jsxs(VStack, __assign({ gap: "16", max: true, className: classNames(cls.ArticleDetailsComments, {}, [className]) }, { children: [_jsx(Text, { className: cls.commentTitle, title: t('Комментарии') }, void 0), _jsx(AddCommentForm, { onSendComment: onSendComment }, void 0), _jsx(CommentList, { comments: comments, isLoading: commentsIsLoading }, void 0)] }), void 0));
 });

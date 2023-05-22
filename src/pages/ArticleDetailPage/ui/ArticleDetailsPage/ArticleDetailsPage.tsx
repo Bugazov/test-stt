@@ -25,13 +25,13 @@ const ArticleDetailPage = ({ className }: ArticleDetailPageProps) => {
     const { t } = useTranslation();
     const { id } = useParams<{id:string}>();
 
-    if (!id) {
-        return (
-            <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
-                {t('Стаья не найдена')}
-            </Page>
-        );
-    }
+    // if (!id) {
+    //     return (
+    //         <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
+    //             {t('Стаья не найдена')}
+    //         </Page>
+    //     );
+    // }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

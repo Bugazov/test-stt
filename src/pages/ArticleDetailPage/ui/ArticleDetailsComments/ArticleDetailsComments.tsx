@@ -21,7 +21,7 @@ import cls from '../ArticleDetailsPage/ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
-    id:string
+    id?:string
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
