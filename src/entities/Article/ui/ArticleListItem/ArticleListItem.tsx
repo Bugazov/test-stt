@@ -10,18 +10,20 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ArticleView } from '../../const/articleConst';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article, ArticleBlockType, ArticleTextBlock,
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
-    className?: string;
     article: Article;
-    view: ArticleView;
-    target?:HTMLAttributeAnchorTarget
-    index?:number
+    className?: string;
+    // eslint-disable-next-line react/no-unused-prop-types
+    index?: number;
+    target?: HTMLAttributeAnchorTarget
+    view: ArticleView
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {

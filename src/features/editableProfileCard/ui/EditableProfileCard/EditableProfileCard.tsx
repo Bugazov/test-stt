@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
@@ -12,6 +11,7 @@ import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
+import { ValidateProfileError } from '../../const/const';
 import {
     getProfileValidateErrors,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
@@ -22,7 +22,6 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import cls from './EditableProfileCard.module.scss';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import {
     EditableProfileCardHeader,
 } from '../../ui/EditableProfileCardHeader/EditableProfileCardHeader';

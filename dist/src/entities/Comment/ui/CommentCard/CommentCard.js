@@ -22,7 +22,7 @@ import cls from './CommentCard.module.scss';
 export var CommentCard = memo(function (props) {
     var className = props.className, comment = props.comment, isLoading = props.isLoading;
     if (isLoading) {
-        return (_jsxs("div", __assign({ className: classNames(cls.CommentCard, {}, [className, cls.loading]) }, { children: [_jsxs("div", __assign({ className: cls.header }, { children: [_jsx(Skeleton, { width: 30, height: 30, border: "50%" }, void 0), _jsx(Skeleton, { height: 16, width: 100, className: cls.username }, void 0)] }), void 0), _jsx(Skeleton, { className: cls.text, width: "100%", height: 50 }, void 0)] }), void 0));
+        return (_jsxs(VStack, __assign({ gap: "8", max: true, className: classNames(cls.CommentCard, {}, [className, cls.loading]) }, { children: [_jsxs("div", __assign({ className: cls.header }, { children: [_jsx(Skeleton, { width: 30, height: 30, border: "50%" }, void 0), _jsx(Skeleton, { height: 16, width: 100, className: cls.username }, void 0)] }), void 0), _jsx(Skeleton, { className: cls.text, width: "100%", height: 50 }, void 0)] }), void 0));
     }
     if (!comment) {
         return null;

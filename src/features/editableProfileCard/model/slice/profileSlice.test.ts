@@ -1,9 +1,10 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ValidateProfileError } from '../../const/const';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileReducer } from '../slice/profileSlice';
 import { profileActions } from './profileSlice';
-import { ProfileSchema, ValidateProfileError } from '../../model/types/editableProfileCardSchema';
+import { ProfileSchema } from '../../model/types/editableProfileCardSchema';
 
 const data = {
     first: 'Islam',

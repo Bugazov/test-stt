@@ -7,6 +7,9 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailPage';
 import ArticleEditPage from 'pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { UserRole } from 'entities/User/model/types/user';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 export var AppRoutes;
 (function (AppRoutes) {
     AppRoutes["MAIN"] = "main";
@@ -17,6 +20,8 @@ export var AppRoutes;
     AppRoutes["ARTICLES_DETAILS"] = "articles_details";
     AppRoutes["ARTICLE_EDIT"] = "article_edit";
     AppRoutes["ARTICLE_CREATE"] = "article_create";
+    AppRoutes["ADMIN_PANEL"] = "admin_panel";
+    AppRoutes["FORBIDDEN"] = "forbidden";
 })(AppRoutes || (AppRoutes = {}));
 export var RoutePath = (_a = {},
     _a[AppRoutes.MAIN] = '/',
@@ -26,6 +31,8 @@ export var RoutePath = (_a = {},
     _a[AppRoutes.ARTICLES_DETAILS] = '/articles/',
     _a[AppRoutes.ARTICLE_EDIT] = '/articles/:id/edit',
     _a[AppRoutes.ARTICLE_CREATE] = '/articles/new',
+    _a[AppRoutes.ADMIN_PANEL] = '/admin',
+    _a[AppRoutes.FORBIDDEN] = '/forbidden',
     // последний
     _a[AppRoutes.NOT_FOUND] = '*',
     _a);
@@ -57,6 +64,12 @@ export var routeConfig = (_b = {},
         element: _jsx(ArticleDetailsPage, {}, void 0),
         authOnly: true,
     },
+    _b[AppRoutes.ADMIN_PANEL] = {
+        path: "".concat(RoutePath.admin_panel),
+        element: _jsx(AdminPanelPage, {}, void 0),
+        authOnly: true,
+        roles: [UserRole.MANAGER, UserRole.ADMIN],
+    },
     _b[AppRoutes.ARTICLE_CREATE] = {
         path: "".concat(RoutePath.article_create),
         element: _jsx(ArticleEditPage, {}, void 0),
@@ -66,5 +79,9 @@ export var routeConfig = (_b = {},
         path: "".concat(RoutePath.article_edit),
         element: _jsx(ArticleEditPage, {}, void 0),
         authOnly: true,
+    },
+    _b[AppRoutes.FORBIDDEN] = {
+        path: "".concat(RoutePath.forbidden),
+        element: _jsx(ForbiddenPage, {}, void 0),
     },
     _b);
