@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { ArticleType, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { ArticleSortField } from 'entities/Article/model/types/article';
+import { ArticleSortField } from 'entities/Article/const/articleConst';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 var articlesAdapter = createEntityAdapter({
     selectId: function (article) { return article.id; },

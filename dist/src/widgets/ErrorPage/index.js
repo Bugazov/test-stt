@@ -1,1 +1,1 @@
-"use strict";
+export { ErrorPage } from './ui/ErrorPage';

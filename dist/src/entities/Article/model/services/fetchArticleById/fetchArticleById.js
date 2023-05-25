@@ -44,6 +44,9 @@ export var fetchArticleById = createAsyncThunk('article/fetchArticleById', funct
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
+                if (!id) {
+                    throw new Error('Нету айдишника');
+                }
                 return [4 /*yield*/, extra.api.get("/articles/".concat(id), {
                         params: {
                             _expand: 'user',

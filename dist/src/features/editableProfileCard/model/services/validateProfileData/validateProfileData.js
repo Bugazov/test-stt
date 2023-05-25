@@ -1,4 +1,4 @@
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../../const/const';
 export var validateProfileData = function (profile) {
     if (!profile) {
         return [ValidateProfileError.NO_DATA];

@@ -16,10 +16,10 @@ import { memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { List, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
+import { ArticleView } from '../../const/articleConst';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
-import { ArticleView } from '../../model/types/article';
 var getSkeletons = function (view) { return new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map(function (item, index) { return (
@@ -44,10 +44,16 @@ export var ArticleList = memo(function (props) {
     if (!isLoading && !articles.length) {
         return (_jsx("div", __assign({ className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: _jsx(Text, { size: TextSize.L, title: t('Статьи не найдены') }, void 0) }), void 0));
     }
-    return (_jsx(WindowScroller, __assign({ scrollElement: document.getElementById(PAGE_ID) }, { children: function (_a) {
+    return (
+    // @ts-ignore
+    _jsx(WindowScroller, __assign({ scrollElement: document.getElementById(PAGE_ID) }, { children: function (_a) {
             var height = _a.height, width = _a.width, registerChild = _a.registerChild, onChildScroll = _a.onChildScroll, isScrolling = _a.isScrolling, scrollTop = _a.scrollTop;
-            return (_jsxs("div", __assign({ ref: registerChild, className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: [virtualized
-                        ? (_jsx(List, { height: height !== null && height !== void 0 ? height : 700, rowCount: rowCount, rowHeight: isBig ? 700 : 330, rowRenderer: rowRender, width: width ? width - 80 : 700, autoHeight: true, onScroll: onChildScroll, isScrolling: isScrolling, scrollTop: scrollTop }, void 0))
+            return (_jsxs("div", __assign({ 
+                // @ts-ignore
+                ref: registerChild, className: classNames(cls.ArticleList, {}, [className, cls[view]]) }, { children: [virtualized
+                        ? (
+                        // @ts-ignore
+                        _jsx(List, { height: height !== null && height !== void 0 ? height : 700, rowCount: rowCount, rowHeight: isBig ? 700 : 330, rowRenderer: rowRender, width: width ? width - 80 : 700, autoHeight: true, onScroll: onChildScroll, isScrolling: isScrolling, scrollTop: scrollTop }, void 0))
                         : (articles.map(function (item) { return (_jsx(ArticleListItem, { article: item, view: view, target: target, className: cls.card }, item.id)); })), isLoading && getSkeletons(view)] }), void 0));
         } }), void 0));
 });

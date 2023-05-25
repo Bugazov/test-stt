@@ -15,15 +15,14 @@ import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { EditableProfileCard } from 'features/editableProfileCard';
 import { useParams } from 'react-router-dom';
-import Text from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 var ProfilePage = function (_a) {
     var className = _a.className;
     var id = useParams().id;
     var t = useTranslation('profile').t;
-    if (!id) {
-        return _jsx(Text, { title: t('Не найден профиль') }, void 0);
-    }
+    // if (!id) {
+    //     return <Text title={t('Не найден профиль')} />;
+    // }
     return (_jsx(Page, __assign({ className: classNames('', {}, [className]) }, { children: _jsx(VStack, __assign({ max: true, gap: "16" }, { children: _jsx(EditableProfileCard, { id: id }, void 0) }), void 0) }), void 0));
 };
 export default ProfilePage;

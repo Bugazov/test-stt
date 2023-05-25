@@ -10,13 +10,15 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 export default {
-    title: 'shared/ArticleDetailsComments',
+    title: 'pages/ArticleDetailsComments',
     component: ArticleDetailsComments,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 };
 var Template = function (args) { return _jsx(ArticleDetailsComments, __assign({}, args), void 0); };
 export var Normal = Template.bind({});

@@ -35,9 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
+import { ValidateProfileError } from '../../../const/const';
 export var updateProfileData = createAsyncThunk('profile/updateProfileData', function (_, thunkApi) { return __awaiter(void 0, void 0, void 0, function () {
     var extra, rejectWithValue, getState, formData, errors, response, e_1;
     return __generator(this, function (_a) {

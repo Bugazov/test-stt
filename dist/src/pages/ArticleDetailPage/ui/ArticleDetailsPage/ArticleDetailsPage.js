@@ -30,9 +30,13 @@ var ArticleDetailPage = function (_a) {
     var className = _a.className;
     var t = useTranslation().t;
     var id = useParams().id;
-    if (!id) {
-        return (_jsx(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: t('Стаья не найдена') }), void 0));
-    }
+    // if (!id) {
+    //     return (
+    //         <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
+    //             {t('Стаья не найдена')}
+    //         </Page>
+    //     );
+    // }
     return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers, removeAfterUnmount: true }, { children: _jsx(Page, __assign({ className: classNames(cls.ArticleDetailPage, {}, [className]) }, { children: _jsxs(VStack, __assign({ gap: "16", max: true }, { children: [_jsx(ArticleDetailsPageHeader, {}, void 0), _jsx(ArticleDetails, { id: id }, void 0), _jsx(ArticleRecommedationList, {}, void 0), _jsx(ArticleDetailsComments, { id: id }, void 0)] }), void 0) }), void 0) }), void 0));
 };
 export default memo(ArticleDetailPage);

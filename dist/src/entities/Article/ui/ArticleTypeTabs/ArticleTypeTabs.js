@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { Tabs } from 'shared/ui/Tabs/Tabs';
-import { ArticleType } from '../../model/types/article';
+import { ArticleType } from '../../const/articleConst';
 export var ArticleTypeTabs = memo(function (props) {
     var className = props.className, value = props.value, onChangeType = props.onChangeType;
     var t = useTranslation().t;

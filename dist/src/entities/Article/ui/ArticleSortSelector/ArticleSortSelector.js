@@ -14,7 +14,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
 import { Select } from 'shared/ui/Select/Select';
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from '../../const/articleConst';
 import cls from './ArticleSortSelector.module.scss';
 export var ArticleSortSelector = memo(function (props) {
     var className = props.className, order = props.order, onChangeOrder = props.onChangeOrder, onChangeSort = props.onChangeSort, sort = props.sort;
