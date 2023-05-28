@@ -1,13 +1,13 @@
 import {
     configureStore, ReducersMapObject, DeepPartial, getDefaultMiddleware, CombinedState, Reducer,
 } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUsername';
-import { $api } from 'shared/api/api';
 import { To, NavigateOptions } from 'react-router-dom';
-import { scrollSaveReducer } from 'features/ScrollSave';
-import { rtkApi } from 'shared/api/rtkApi';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { loginReducer } from '@/features/AuthByUsername';
+import { $api } from '@/shared/api/api';
+import { scrollSaveReducer } from '@/features/ScrollSave';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 

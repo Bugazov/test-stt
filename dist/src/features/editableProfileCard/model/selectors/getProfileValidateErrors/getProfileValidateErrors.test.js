@@ -1,4 +1,4 @@
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../../const/const';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 describe('getProfileValidateErrors.test', function () {
     test('should return value', function () {

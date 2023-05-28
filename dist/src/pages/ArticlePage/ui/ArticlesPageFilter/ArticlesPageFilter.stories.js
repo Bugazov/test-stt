@@ -10,6 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticlesPageFilter } from './ArticlesPageFilter';
 export default {
     title: 'pages/ArticlesPageFilter',
@@ -17,6 +18,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 };
 var Template = function (args) { return _jsx(ArticlesPageFilter, __assign({}, args), void 0); };
 export var Normal = Template.bind({});

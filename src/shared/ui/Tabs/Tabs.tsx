@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, ReactNode, useCallback } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 // eslint-disable-next-line ulbi-tv-plugin/path-checker
-import { Card, CardTheme } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from '@/shared/ui/Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem {

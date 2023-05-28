@@ -10,9 +10,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 export default {
-    title: 'shared/EditableProfileCardHeader',
+    title: 'features/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -21,3 +22,4 @@ export default {
 var Template = function (args) { return _jsx(EditableProfileCardHeader, __assign({}, args), void 0); };
 export var Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({})];

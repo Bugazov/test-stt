@@ -10,13 +10,15 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 export default {
-    title: 'shared/ArticleInfiniteList',
+    title: 'page/ArticleInfiniteList',
     component: ArticleInfiniteList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 };
 var Template = function (args) { return _jsx(ArticleInfiniteList, __assign({}, args), void 0); };
 export var Normal = Template.bind({});

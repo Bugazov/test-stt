@@ -11,7 +11,8 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleType } from 'entities/Article';
+import { ArticleBlockType } from 'entities/Article/model/types/article';
 import ArticleDetailPage from './ArticleDetailsPage';
 export default {
     title: 'pages/ArticleDetailsPage',

@@ -60,6 +60,7 @@ module.exports = {
                     'direction',
                     'border',
                     'as',
+                    'align',
                 ],
             },
         ],
