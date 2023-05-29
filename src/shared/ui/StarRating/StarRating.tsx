@@ -2,6 +2,7 @@ import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import { Icon } from '@/shared/ui/Icon/Icon';
+
 import StarIcon from '@/shared/assets/icons/star.svg';
 
 interface StarRatingProps {
@@ -9,6 +10,8 @@ interface StarRatingProps {
     onSelect?: (starsCount: number) => void;
     size?: number;
     selectedStars?: number;
+    
+    
 }
 
 const stars = [1, 2, 3, 4, 5];
