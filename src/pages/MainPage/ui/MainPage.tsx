@@ -16,7 +16,7 @@ const MainPage = () => {
     return (
         <Page>
             {t('Главная страница')}
-            <RatingCard />
+            <RatingCard title='Как вам статья' />
         </Page>
     );
 };
