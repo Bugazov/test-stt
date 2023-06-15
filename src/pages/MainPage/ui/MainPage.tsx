@@ -7,6 +7,7 @@ import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation();
+
     const [value, setValue] = useState('');
 
     const onChange = (val: string) => {
