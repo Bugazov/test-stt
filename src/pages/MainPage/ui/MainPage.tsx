@@ -7,6 +7,7 @@ import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation();
+
     const [value, setValue] = useState('');
 
     const onChange = (val: string) => {
@@ -14,9 +15,13 @@ const MainPage = () => {
     };
 
     return (
+
         <Page>
             {t('Главная страница')}
-            <RatingCard title='Как вам статья' />
+            <RatingCard
+                title="Как вам статья"
+                feedbackTitle="Оставьте отзыв"
+            />
         </Page>
     );
 };
