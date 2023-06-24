@@ -61,6 +61,8 @@ module.exports = {
                     'border',
                     'as',
                     'align',
+                    'feedbackTitle',
+                    'title',
                 ],
             },
         ],
@@ -72,7 +74,8 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/prop-types': 'off',
-        'ulbi-tv-plugin/path-checker': 'error',
+        'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
+        'ulbi-tv-plugin/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
