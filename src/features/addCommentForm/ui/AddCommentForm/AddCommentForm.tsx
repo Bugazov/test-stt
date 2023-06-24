@@ -36,8 +36,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         onCommentTextChange('');
     }, [onCommentTextChange, onSendComment, text]);
 
-    
-
     return (
         <DynamicModuleLoader reducers={reducers}>
             <HStack justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>

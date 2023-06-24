@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@/shared/ui/Input/Input';
-import { Page } from '@/widgets/Page/Page';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
+
+import { Page } from '@/widgets/Page';
+
 import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
