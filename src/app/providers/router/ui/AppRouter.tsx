@@ -3,10 +3,12 @@ import React, {
 } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { AppRoutes, AppRoutesProps, routeConfig } from '@/shared/config/routeConfig/routeConfig';
 import { PageLoader } from '@/shared/ui/PageLoader/PageLoader';
 import { getUserAuthData } from '@/entities/User';
 import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
+import { routeConfig } from '@/app/providers/router/config/routeConfig';
+import { AppRoutes } from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/router';
 
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route:AppRoutesProps) => {
