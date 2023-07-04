@@ -1,0 +1,232 @@
+<html><head><meta charset="utf-8"/><title>Test Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+.jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div class="jesthtml-content"><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Started: 2023-07-04 21:04:47</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (31)</div><div class="summary-passed">31 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (78)</div><div class="summary-passed">78 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\slice\profileSlice.test.ts</div><div class="suite-time">2.772s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">profileSlice</div><div class="test-title">test set password</div><div class="test-status">passed</div><div class="test-duration">0.025s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">profileSlice</div><div class="test-title">test update</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">profileSlice</div><div class="test-title">test cancelEdit</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">profileSlice</div><div class="test-title">test update profile service pending</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">profileSlice</div><div class="test-title">test update profile service fullfiled</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-2" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\services\updateProfileData\updateProfileData.test.ts</div><div class="suite-time">2.81s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">updateProfileData</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">updateProfileData</div><div class="test-title">error </div><div class="test-status">passed</div><div class="test-duration">0.013s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">updateProfileData</div><div class="test-title">validate error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-3" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\widgets\Sidebar\ui\Sidebar\Sidebar.test.tsx</div><div class="suite-time">1.425s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Sidebar</div><div class="test-title">with only first param</div><div class="test-status">passed</div><div class="test-duration">0.073s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Sidebar</div><div class="test-title">test toggle</div><div class="test-status">passed</div><div class="test-duration">0.026s</div></div></div></div></div><div id="suite-4" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\ui\EditableProfileCard\EditableProfileCard.test.tsx</div><div class="suite-time">4.334s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">features/EditableProfileCard.test.tsx</div><div class="test-title">Режим рид онли должен переключиться</div><div class="test-status">passed</div><div class="test-duration">0.283s</div></div></div></div></div><div id="suite-5" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Counter\ui\Counter.test.tsx</div><div class="suite-time">1.856s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Counter</div><div class="test-title">test render</div><div class="test-status">passed</div><div class="test-duration">0.069s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Counter</div><div class="test-title">increment</div><div class="test-status">passed</div><div class="test-duration">0.076s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Counter</div><div class="test-title">decrement</div><div class="test-status">passed</div><div class="test-duration">0.105s</div></div></div></div></div><div id="suite-6" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\shared\ui\Button\Button.test.tsx</div><div class="suite-time">0.643s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Button</div><div class="test-title">Test render</div><div class="test-status">passed</div><div class="test-duration">0.029s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Button</div><div class="test-title">Test clear theme</div><div class="test-status">passed</div><div class="test-duration">0.018s</div></div></div></div></div><div id="suite-7" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\services\validateProfileData\validateProfileData.test.ts</div><div class="suite-time">0.418s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">validateProfileData.test</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">validateProfileData.test</div><div class="test-title">without first and last name</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">validateProfileData.test</div><div class="test-title">incorrect age</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">validateProfileData.test</div><div class="test-title">incorrect country</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">validateProfileData.test</div><div class="test-title">incorrect all</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-8" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\pages\ArticlePage\model\services\fetchNextArticlesPage\fetchNextArticlesPage.test.ts</div><div class="suite-time">0.884s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchNextArticlesPage.test</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.009s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchNextArticlesPage.test</div><div class="test-title">fetchAritcleList not called</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-9" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\services\fetchProfileData\fetchProfileData.test.ts</div><div class="suite-time">0.459s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchProfileData</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchProfileData</div><div class="test-title">error </div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-10" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\selectors\getProfileData\getProfileData.test.ts</div><div class="suite-time">0.392s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileData</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileData</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-11" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\selectors\getProfileForm\getProfileForm.test.ts</div><div class="suite-time">0.386s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileForm.test</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileForm.test</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-12" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Article\model\services\fetchArticleById\fetchArticleById.test.ts</div><div class="suite-time">0.336s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchArticleById</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchArticleById</div><div class="test-title">error </div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-13" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Article\model\slice\articleDetailsSlice.test.ts</div><div class="suite-time">0.315s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetailsSlice</div><div class="test-title">test fetch article pending</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetailsSlice</div><div class="test-title">test fetch article service fullfiled</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-14" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\AuthByUsername\model\services\loginByUsername\loginByUsername.test.ts</div><div class="suite-time">0.399s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">loginByUsername</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.01s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">loginByUsername</div><div class="test-title">error login</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-15" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\pages\ArticleDetailPage\model\services\fetchCommentsByArticleId\fetchCommentsByArticleId.test.ts</div><div class="suite-time">0.378s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchArticleById</div><div class="test-title">success</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">fetchArticleById</div><div class="test-title">error </div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-16" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Counter\model\selectors\getCounterValue\getCounterValue.test.ts</div><div class="suite-time">0.309s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getCounterValue.test</div><div class="test-title"/><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div></div></div><div id="suite-17" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\AuthByUsername\model\slice\loginSlice.test.tsx</div><div class="suite-time">0.375s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">loginSlice</div><div class="test-title">test set password</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">loginSlice</div><div class="test-title">test set username</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-18" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\selectors\getProfileError\getProfileError.test.ts</div><div class="suite-time">0.331s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileError.test</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileError.test</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-19" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\pages\ArticleDetailPage\model\selectors\comments.test.ts</div><div class="suite-time">0.352s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should return isLoading</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should return error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should work with empty error</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should work with empty isLoading</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-20" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Counter\model\slice\counterSlice.test.ts</div><div class="suite-time">0.314s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">counterSlice.test</div><div class="test-title">decrement</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">counterSlice.test</div><div class="test-title">increment</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">counterSlice.test</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-21" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\AuthByUsername\model\selectors\getLoginPassword\getLoginPassword.test.tsx</div><div class="suite-time">0.306s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should return password value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-22" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\AuthByUsername\model\selectors\getLoginLoading\getLoginLoading.test.tsx</div><div class="suite-time">0.289s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should return loading value</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-23" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Article\model\selectors\articleDetails.test.ts</div><div class="suite-time">0.285s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should return isLoading</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should return error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should work with empty error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">articleDetails</div><div class="test-title">should work with empty isLoading</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-24" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\AuthByUsername\model\selectors\getLoginUsername\getLoginUssername.test.tsx</div><div class="suite-time">0.291s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should return username value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-25" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\selectors\getProfileLoading\getProfileLoading.test.ts</div><div class="suite-time">0.29s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileLoading.test</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileLoading.test</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-26" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\selectors\getProfileValidateErrors\getProfileValidateErrors.test.ts</div><div class="suite-time">0.292s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileValidateErrors.test</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileValidateErrors.test</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-27" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\shared\lib\url\addQueryParams\addQueryParams.test.ts</div><div class="suite-time">0.301s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">shared/url/addQueryParams</div><div class="test-title">test with one param</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">shared/url/addQueryParams</div><div class="test-title">test with multiple params</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">shared/url/addQueryParams</div><div class="test-title">test with undefined</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-28" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\editableProfileCard\model\selectors\getProfileReadonly\getProfileReadonly.test.ts</div><div class="suite-time">0.28s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileReadonly.test</div><div class="test-title">should return value</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getProfileReadonly.test</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-29" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\entities\Counter\model\selectors\getCounter\getCounter.test.ts</div><div class="suite-time">0.298s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getCounter</div><div class="test-title">should return counter value</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-30" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\shared\lib\classNames\classNames.test.ts</div><div class="suite-time">0.269s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">classNames</div><div class="test-title">with only first param</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">classNames</div><div class="test-title">with additional class</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">classNames</div><div class="test-title">with mods</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">classNames</div><div class="test-title">with mods false</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">classNames</div><div class="test-title">with mods undefined</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-31" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Odin Takoy\Desktop\test-stt\src\features\AuthByUsername\model\selectors\getLoginError\getLoginError.test.tsx</div><div class="suite-time">0.275s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should return error value</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getLoginError</div><div class="test-title">should work with empty state</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div></div></body></html>
