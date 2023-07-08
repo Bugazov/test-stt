@@ -19,7 +19,7 @@ export function RequireAuth(_a) {
         });
     }, [roles, userRoles]);
     if (!auth) {
-        return _jsx(Navigate, { to: RoutePath.main, state: { from: location }, replace: true }, void 0);
+        return _jsx(Navigate, { to: getRouteMain(), state: { from: location }, replace: true }, void 0);
     }
     if (!hasRequiredRoles) {
         return _jsx(Navigate, { to: RoutePath.forbidden, state: { from: location }, replace: true }, void 0);
