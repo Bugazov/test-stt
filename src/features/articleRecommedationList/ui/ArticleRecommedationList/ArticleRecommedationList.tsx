@@ -30,7 +30,7 @@ export const ArticleRecommedationList = memo((props: ArticleRecommedationListPro
                 isLoading={isLoading}
                 articles={data}
                 target="_blank"
-                virtualized={false}
+                // virtualized={false}
             />
 
         </VStack>
